@@ -2,14 +2,8 @@ name: Daily AI News Brief
 
 on:
   schedule:
-    # 9:00 AM UTC+1 (Portugal / Western Europe standard time) = 08:00 UTC
-    # Change the hour below to match YOUR timezone:
-    #   UTC+0  → 9
-    #   UTC+1  → 8   ← Portugal (winter)
-    #   UTC+2  → 7   ← Portugal (summer / CEST)
-    #   UTC+7  → 2
-    #   UTC+8  → 1   ← Malaysia / Singapore / China
-    - cron: '0 8 * * *'
+    # 9:00 AM UTC+7 = 02:00 UTC
+    - cron: '0 2 * * *'
 
   # Allow manual trigger from GitHub Actions tab
   workflow_dispatch:
