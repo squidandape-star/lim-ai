@@ -8,5 +8,5 @@
 //    - Disable "Enable email confirmations" if you want instant access
 //    - Set "Disable sign ups" to ON if you want invite-only (recommended)
 
-const SUPABASE_URL  = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL  = 'https://fmedwnzesogjbimpkpoy.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_Isy142nheqjYlT6zTrmk_A_oqpO0PWE';
