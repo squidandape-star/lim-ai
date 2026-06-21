@@ -6,14 +6,6 @@
   <title>LIM-AI TERMINAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-  <!-- Apply saved theme before first paint (no flash) -->
-  <script>(function(){var t=localStorage.getItem('lim-ai-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
-
-  <!-- Supabase SDK + auth config -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-
   <style>
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -110,171 +102,6 @@
     ::-webkit-scrollbar-track { background: var(--bg2); }
     ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
-    /* ══════════════════════════════════════
-       AUTH SCREEN
-    ══════════════════════════════════════ */
-    #auth-screen {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      transition: background 0.2s;
-    }
-    #auth-theme-btn {
-      position: absolute;
-      top: 14px; right: 14px;
-      background: none;
-      border: 1px solid var(--border2);
-      border-radius: 3px;
-      cursor: pointer;
-      padding: 4px 8px;
-      font-family: var(--font);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text2);
-      letter-spacing: 0.05em;
-      transition: all 0.15s;
-    }
-    #auth-theme-btn:hover { border-color: var(--orange); color: var(--orange); }
-    #auth-box {
-      width: 380px;
-      max-width: calc(100vw - 32px);
-      background: var(--bg2);
-      border: 1px solid var(--border2);
-      border-top: 3px solid var(--orange);
-    }
-    .auth-logo {
-      padding: 26px 28px 4px;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--orange);
-    }
-    .auth-subtitle {
-      padding: 0 28px 18px;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      color: var(--dim);
-      font-weight: 700;
-    }
-    .auth-tabs {
-      display: flex;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .auth-tab {
-      flex: 1;
-      padding: 10px;
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      font-family: var(--font);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--dim);
-      cursor: pointer;
-      transition: all 0.15s;
-      margin-bottom: -1px;
-    }
-    .auth-tab:hover { color: var(--text2); }
-    .auth-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
-    .auth-form { padding: 20px 28px 26px; }
-    .auth-field { margin-bottom: 16px; }
-    .auth-label {
-      display: block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--dim);
-      margin-bottom: 6px;
-    }
-    .auth-input-wrap { position: relative; }
-    .auth-input {
-      width: 100%;
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      color: var(--text);
-      font-family: var(--font);
-      font-size: 13px;
-      padding: 9px 12px;
-      outline: none;
-      transition: border-color 0.15s;
-      -webkit-appearance: none;
-    }
-    .auth-input:focus { border-color: var(--orange); }
-    .auth-input::placeholder { color: var(--dim); }
-    .auth-input.with-toggle { padding-right: 38px; }
-    .auth-pw-toggle {
-      position: absolute;
-      right: 10px; top: 50%;
-      transform: translateY(-50%);
-      background: none; border: none;
-      color: var(--dim); cursor: pointer;
-      font-size: 13px; padding: 2px;
-      line-height: 1;
-    }
-    .auth-pw-toggle:hover { color: var(--text2); }
-    #auth-error, #auth-success {
-      display: none;
-      margin-bottom: 14px;
-      font-size: 11px;
-      padding: 8px 10px;
-      line-height: 1.6;
-    }
-    #auth-error {
-      color: var(--red2);
-      background: rgba(255,23,68,0.08);
-      border: 1px solid rgba(255,23,68,0.2);
-    }
-    #auth-success {
-      color: var(--green);
-      background: rgba(0,255,136,0.08);
-      border: 1px solid rgba(0,255,136,0.2);
-    }
-    [data-theme="light"] #auth-error   { background: rgba(204,0,34,0.06);   border-color: rgba(204,0,34,0.18); }
-    [data-theme="light"] #auth-success { background: rgba(0,102,51,0.06);   border-color: rgba(0,102,51,0.18); }
-    #auth-submit {
-      width: 100%;
-      background: var(--orange);
-      color: #000;
-      border: none;
-      font-family: var(--font);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      padding: 12px;
-      cursor: pointer;
-      transition: opacity 0.15s;
-      margin-bottom: 14px;
-    }
-    #auth-submit:hover:not(:disabled) { opacity: 0.82; }
-    #auth-submit:disabled { opacity: 0.45; cursor: not-allowed; }
-    .auth-footer {
-      font-size: 10px;
-      color: var(--dim);
-      text-align: center;
-      line-height: 1.8;
-    }
-    /* Setup-needed state */
-    .auth-setup-msg {
-      padding: 22px 28px 28px;
-      font-size: 11px;
-      color: var(--text2);
-      line-height: 2;
-    }
-    .auth-setup-msg code { color: var(--orange); font-family: var(--font); }
-    .auth-setup-step {
-      margin-top: 10px;
-      padding-left: 14px;
-      border-left: 2px solid var(--border2);
-    }
-    .auth-setup-step li { margin-bottom: 4px; list-style: none; padding-left: 0; }
-    .auth-setup-step li::before { content: '→ '; color: var(--orange); }
-
     /* ── Top Bar ── */
     #topbar {
       position: fixed;
@@ -282,6 +109,7 @@
       height: var(--topbar);
       background: var(--topbar-bg);
       border-bottom: 1px solid var(--topbar-bd);
+      display: flex;
       align-items: center;
       padding: 0 14px;
       gap: 12px;
@@ -314,17 +142,12 @@
     .tb-stats .s-major { color: var(--red); font-weight: 600; }
     .tb-stats .s-sig   { color: var(--orange); font-weight: 600; }
     .tb-clock {
-      font-size: 12px; color: var(--text2); white-space: nowrap;
+      margin-left: auto; font-size: 12px; color: var(--text2); white-space: nowrap;
     }
     .tb-date { color: var(--orange2); font-weight: 600; }
-    .tb-user {
-      font-size: 10px; color: var(--dim); white-space: nowrap;
-      max-width: 160px; overflow: hidden; text-overflow: ellipsis;
-    }
-    .tb-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 
-    /* Theme toggle + Logout */
-    #theme-toggle, #logout-btn {
+    /* Theme toggle */
+    #theme-toggle {
       background: none; border: 1px solid var(--border2);
       border-radius: 3px; cursor: pointer; padding: 4px 8px;
       font-family: var(--font); font-size: 11px; font-weight: 600;
@@ -332,7 +155,6 @@
       transition: all 0.15s; flex-shrink: 0;
     }
     #theme-toggle:hover { border-color: var(--orange); color: var(--orange); }
-    #logout-btn:hover   { border-color: var(--red2);   color: var(--red2); }
 
     /* Hamburger */
     #hamburger {
@@ -611,81 +433,26 @@
       #mobile-datebar { display: flex; }
       #hamburger { display: block; }
       .tb-stats { display: none; }
-      .tb-user  { display: none; }
       .bh-headline { font-size: 13px; }
       .story-title { font-size: 12px; }
-      #auth-box { width: 100%; max-width: 100%; }
-      #auth-screen { align-items: flex-start; padding-top: 60px; }
-      .auth-logo { font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════
-     AUTH SCREEN
-═══════════════════════════════════════════════════════ -->
-<div id="auth-screen">
-  <button id="auth-theme-btn" onclick="toggleTheme()">☀ LIGHT</button>
-
-  <div id="auth-box">
-    <div class="auth-logo">▌ LIM-AI TERMINAL</div>
-    <div class="auth-subtitle">RESTRICTED ACCESS</div>
-
-    <div class="auth-tabs" id="auth-tabs">
-      <button class="auth-tab active" data-mode="login"    onclick="setAuthMode('login')">LOGIN</button>
-      <button class="auth-tab"        data-mode="register" onclick="setAuthMode('register')">REGISTER</button>
-    </div>
-
-    <div class="auth-form" id="auth-form">
-      <div id="auth-error"></div>
-      <div id="auth-success"></div>
-
-      <div class="auth-field">
-        <label class="auth-label" for="auth-email">EMAIL</label>
-        <input class="auth-input" id="auth-email" type="email"
-               placeholder="you@example.com" autocomplete="email">
-      </div>
-
-      <div class="auth-field">
-        <label class="auth-label" for="auth-password">PASSWORD</label>
-        <div class="auth-input-wrap">
-          <input class="auth-input with-toggle" id="auth-password" type="password"
-                 placeholder="••••••••" autocomplete="current-password">
-          <button class="auth-pw-toggle" onclick="togglePwVis()" title="Show / hide">👁</button>
-        </div>
-      </div>
-
-      <button id="auth-submit" onclick="handleAuth()">LOGIN</button>
-
-      <div class="auth-footer" id="auth-footer">
-        Access is by invitation only.<br>Contact the administrator to register.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════
-     TERMINAL  (hidden until logged in)
-═══════════════════════════════════════════════════════ -->
-<header id="topbar" style="display:none">
+<header id="topbar">
   <button id="hamburger" onclick="toggleSidebar()">☰</button>
   <div class="tb-brand">LIM<span>-</span>AI <span style="opacity:0.4">TERMINAL</span></div>
   <div class="tb-divider"></div>
   <div class="tb-live"><div class="tb-live-dot"></div>LIVE</div>
   <div class="tb-stats" id="tb-stats"></div>
-  <div class="tb-right">
-    <div class="tb-clock" id="tb-clock"></div>
-    <div class="tb-divider"></div>
-    <div class="tb-user" id="tb-user"></div>
-    <button id="theme-toggle" onclick="toggleTheme()">☀ LIGHT</button>
-    <button id="logout-btn"   onclick="logout()">⏏ LOGOUT</button>
-  </div>
+  <div class="tb-clock" id="tb-clock"></div>
+  <button id="theme-toggle" onclick="toggleTheme()">☀ LIGHT</button>
 </header>
 
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
-<div id="layout" style="display:none">
+<div id="layout">
   <aside id="sidebar">
     <div class="sidebar-hdr">ARCHIVE</div>
     <div id="date-list"></div>
@@ -707,160 +474,8 @@
 
 <script src="data.js"></script>
 <script>
-// ═══════════════════════════════════════════════════════
-//  AUTH
-// ═══════════════════════════════════════════════════════
-let _sb = null;
-let _authMode = 'login';
-let _terminalInited = false;
-
-function _initSupabase() {
-  if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL') {
-    _showSetupNeeded();
-    return false;
-  }
-  try {
-    _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-    return true;
-  } catch(e) {
-    _showSetupNeeded();
-    return false;
-  }
-}
-
-function _showSetupNeeded() {
-  document.getElementById('auth-tabs').style.display = 'none';
-  document.getElementById('auth-form').innerHTML = `
-    <div class="auth-setup-msg">
-      Auth is not configured yet.<br>
-      Open <code>website/config.js</code> and fill in your Supabase credentials.
-      <ul class="auth-setup-step" style="margin-top:14px">
-        <li>Go to <code>supabase.com</code> → create a free project</li>
-        <li>Settings → API → copy Project URL + anon key</li>
-        <li>Paste into <code>config.js</code></li>
-        <li>Reload this page</li>
-      </ul>
-    </div>`;
-}
-
-async function initAuth() {
-  if (!_initSupabase()) return;
-
-  const { data: { session } } = await _sb.auth.getSession();
-  if (session) {
-    _showTerminal(session.user);
-  } else {
-    _showAuthScreen();
-  }
-
-  _sb.auth.onAuthStateChange((event, session) => {
-    if (session) {
-      _showTerminal(session.user);
-    } else {
-      _showAuthScreen();
-    }
-  });
-}
-
-function _showTerminal(user) {
-  document.getElementById('auth-screen').style.display = 'none';
-  document.getElementById('topbar').style.display = 'flex';
-  document.getElementById('layout').style.display = 'flex';
-  if (user) document.getElementById('tb-user').textContent = user.email;
-  if (!_terminalInited) {
-    _terminalInited = true;
-    init();
-  }
-}
-
-function _showAuthScreen() {
-  document.getElementById('auth-screen').style.display = 'flex';
-  document.getElementById('topbar').style.display = 'none';
-  document.getElementById('layout').style.display = 'none';
-  _terminalInited = false;
-  // Sync theme button label on auth screen
-  const t = getTheme();
-  const btn = document.getElementById('auth-theme-btn');
-  if (btn) btn.textContent = t === 'dark' ? '☀ LIGHT' : '☾ DARK';
-}
-
-function setAuthMode(mode) {
-  _authMode = mode;
-  document.querySelectorAll('.auth-tab').forEach(t =>
-    t.classList.toggle('active', t.dataset.mode === mode));
-  document.getElementById('auth-submit').textContent = mode === 'login' ? 'LOGIN' : 'REGISTER';
-  _clearAuthMessages();
-}
-
-async function handleAuth() {
-  const email    = document.getElementById('auth-email').value.trim();
-  const password = document.getElementById('auth-password').value;
-  _clearAuthMessages();
-
-  if (!email || !password) { _authError('Email and password are required.'); return; }
-  if (password.length < 6) { _authError('Password must be at least 6 characters.'); return; }
-
-  const btn = document.getElementById('auth-submit');
-  btn.textContent = 'LOADING...';
-  btn.disabled = true;
-
-  try {
-    if (_authMode === 'login') {
-      const { error } = await _sb.auth.signInWithPassword({ email, password });
-      if (error) _authError(error.message);
-    } else {
-      const { error } = await _sb.auth.signUp({ email, password });
-      if (error) {
-        _authError(error.message);
-      } else {
-        _authSuccess('Registered! Check your email to confirm your account, then log in.');
-        setAuthMode('login');
-      }
-    }
-  } catch(e) {
-    _authError('Connection error — please try again.');
-  } finally {
-    btn.textContent = _authMode === 'login' ? 'LOGIN' : 'REGISTER';
-    btn.disabled = false;
-  }
-}
-
-async function logout() {
-  if (_sb) await _sb.auth.signOut();
-}
-
-function togglePwVis() {
-  const inp = document.getElementById('auth-password');
-  inp.type = inp.type === 'password' ? 'text' : 'password';
-}
-
-function _authError(msg) {
-  const el = document.getElementById('auth-error');
-  el.textContent = '✗ ' + msg;
-  el.style.display = 'block';
-}
-function _authSuccess(msg) {
-  const el = document.getElementById('auth-success');
-  el.textContent = '✓ ' + msg;
-  el.style.display = 'block';
-}
-function _clearAuthMessages() {
-  document.getElementById('auth-error').style.display = 'none';
-  document.getElementById('auth-success').style.display = 'none';
-}
-
-// Enter key support in auth form
-document.getElementById('auth-email').addEventListener('keydown', e => {
-  if (e.key === 'Enter') document.getElementById('auth-password').focus();
-});
-document.getElementById('auth-password').addEventListener('keydown', e => {
-  if (e.key === 'Enter') handleAuth();
-});
-
-// ═══════════════════════════════════════════════════════
-//  TERMINAL
-// ═══════════════════════════════════════════════════════
-let currentDate  = null;
+// ── State ──
+let currentDate = null;
 let activeFilter = null;
 
 const CAT_CONFIG = {
@@ -891,22 +506,14 @@ function getTheme() { return document.documentElement.getAttribute('data-theme')
 function toggleTheme() {
   const next = getTheme() === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  const label = next === 'dark' ? '☀ LIGHT' : '☾ DARK';
-  const tt = document.getElementById('theme-toggle');
-  const ab = document.getElementById('auth-theme-btn');
-  if (tt) tt.textContent = label;
-  if (ab) ab.textContent = label;
+  document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀ LIGHT' : '☾ DARK';
   localStorage.setItem('lim-ai-theme', next);
   updateFilterChipColors();
 }
 function initTheme() {
   const saved = localStorage.getItem('lim-ai-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
-  const label = saved === 'dark' ? '☀ LIGHT' : '☾ DARK';
-  const tt = document.getElementById('theme-toggle');
-  const ab = document.getElementById('auth-theme-btn');
-  if (tt) tt.textContent = label;
-  if (ab) ab.textContent = label;
+  document.getElementById('theme-toggle').textContent = saved === 'dark' ? '☀ LIGHT' : '☾ DARK';
 }
 
 // ── Clock ──
@@ -914,8 +521,7 @@ function updateClock() {
   const now = new Date();
   const d = now.toISOString().slice(0, 10);
   const t = now.toTimeString().slice(0, 8);
-  const el = document.getElementById('tb-clock');
-  if (el) el.innerHTML = `<span class="tb-date">${d}</span> &nbsp;${t}`;
+  document.getElementById('tb-clock').innerHTML = `<span class="tb-date">${d}</span> &nbsp;${t}`;
 }
 updateClock();
 setInterval(updateClock, 1000);
@@ -930,7 +536,7 @@ function closeSidebar() {
   document.getElementById('sidebar-overlay').classList.remove('open');
 }
 
-// ── Init terminal ──
+// ── Init ──
 function init() {
   initTheme();
   const briefs = AI_NEWS_DATA.briefs.slice().reverse();
@@ -1006,8 +612,8 @@ function toggleFilter(cat) {
   document.querySelectorAll('.chip').forEach(c => {
     const isActive = c.dataset.cat === activeFilter;
     c.classList.toggle('active', isActive);
-    c.style.background  = isActive ? getCatColor(c.dataset.cat) : '';
-    c.style.color       = isActive ? '' : '';
+    c.style.background = isActive ? getCatColor(c.dataset.cat) : '';
+    c.style.color = isActive ? '' : '';
     c.style.borderColor = isActive ? getCatColor(c.dataset.cat) : '';
   });
   applyFilter();
@@ -1138,9 +744,7 @@ function loadBrief(date) {
 
 function toggleStory(card) { card.classList.toggle('open'); }
 
-// ── Boot ──
-initTheme();
-initAuth();
+init();
 </script>
 </body>
 </html>
