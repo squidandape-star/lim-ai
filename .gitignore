@@ -1,11 +1,42 @@
-# Claude local settings (not for repo)
+# ── Secrets & credentials (NEVER commit these) ──────────────────────
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+credentials.json
+service-account*.json
+*_secret*
+*_credentials*
+
+# ── Claude Code local config (contains machine-specific paths) ───────
 .claude/settings.local.json
+.claude/launch.json
 
-# OS
-Thumbs.db
-desktop.ini
-.DS_Store
-
-# Python cache
+# ── Python ───────────────────────────────────────────────────────────
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+
+# ── OS files ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── Editor ───────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ── Node (if ever added) ─────────────────────────────────────────────
+node_modules/
+npm-debug.log*

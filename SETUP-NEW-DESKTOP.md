@@ -4,14 +4,14 @@ Do this once on any new machine. Takes about 2 minutes.
 
 ## 1. Clone the project
 ```powershell
-git clone https://github.com/enzolim/lim-ai.git C:\Users\enzolim\lim-ai
+git clone https://github.com/YOUR_GITHUB_USERNAME/lim-ai.git C:\Users\YOUR_USERNAME\lim-ai
 ```
 
 ## 2. Open Claude Code
-Open the Claude Code desktop app and sign in with your account (hpjm.pt@gmail.com).
+Open the Claude Code desktop app and sign in with your account.
 
 ## 3. Set the working directory
-Open this project folder in Claude Code: `C:\Users\enzolim\lim-ai`
+Open the cloned project folder in Claude Code.
 
 ## 4. Set up the daily schedule
 Send this message to Claude:
