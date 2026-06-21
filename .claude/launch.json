@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ai-terminal",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3737", "--directory", "C:\\Users\\enzolim\\lim-ai\\website"],
+      "port": 3737
+    }
+  ]
+}

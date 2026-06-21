@@ -1,0 +1,11 @@
+# Claude local settings (not for repo)
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
