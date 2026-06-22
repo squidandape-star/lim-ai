@@ -18,4 +18,10 @@ The US government pulled Fable 5 and Mythos 5 offline via export controls. Trans
 
 ---
 
+## 2026-06-22 — Anthropic files for IPO at $965B valuation; DeepSeek V4 challenges frontier models
+Anthropic confidentially filed for an IPO days after closing a $65B Series H at a $965B valuation, overtaking OpenAI. DeepSeek V4 — a 1.6T parameter MoE model — launches as a frontier-class Chinese competitor. Microsoft Copilot Wave 3 embeds Claude natively. GitHub Copilot drops unlimited plans for metered billing.
+[Full brief →](2026-06-22.md)
+
+---
+
 *Index starts on first run. Entries are prepended (newest at top).*

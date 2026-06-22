@@ -1,6 +1,6 @@
 window.LIM_DATA = window.LIM_DATA || {};
 window.LIM_DATA["ai-news"] = {
-  lastUpdated: "2026-06-21",
+  lastUpdated: "2026-06-22",
   briefs: [
     {
       date: "2026-06-21",
@@ -165,6 +165,250 @@ window.LIM_DATA["ai-news"] = {
         { title: "Boston Dynamics + DeepMind", text: "Gemini Robotics-ER 1.6 integrated into Spot robot and Orbit AI inspection platform via Google Cloud.", url: "https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/" },
         { title: "OpenAI acqui-hire", text: "Acquired Hiro Finance — 7th known acquisition of 2026 — adding personal finance AI capability ahead of IPO.", url: "https://aifundingtracker.com/ai-startup-funding-news-today/" }
       ]
+    },
+    {
+        "date": "2026-06-22",
+        "indexHeadline": "Anthropic files for IPO at $965B valuation; DeepSeek V4 challenges frontier models",
+        "indexSummary": "Anthropic confidentially filed for an IPO days after closing a $65B Series H at a $965B valuation, overtaking OpenAI. DeepSeek V4 — a 1.6T parameter MoE model — launches as a frontier-class Chinese competitor. Microsoft Copilot Wave 3 embeds Claude natively. GitHub Copilot drops unlimited plans for metered billing.",
+        "stats": {
+            "total": 5,
+            "major": 1,
+            "significant": 3,
+            "notable": 1
+        },
+        "topSignal": [
+            {
+                "headline": "Anthropic IPO at near-$1T valuation",
+                "detail": "Confidential S-1 filed after $65B Series H. If listed at $965B, Anthropic would be the most valuable AI company on public markets, ahead of OpenAI's private $300B valuation."
+            },
+            {
+                "headline": "DeepSeek V4: 1.6T parameter Chinese frontier model",
+                "detail": "MoE architecture targets GPT-5.x / Claude 5.x class tasks. Fully open weights. Chinese government backing implied. Direct challenge to US AI export controls."
+            },
+            {
+                "headline": "GitHub Copilot ends unlimited subscriptions",
+                "detail": "Usage-based metered billing at $0.01/AI credit effective June 1. Complex agentic coding sessions made flat-fee model unsustainable for Microsoft."
+            }
+        ],
+        "stories": [
+            {
+                "id": 1,
+                "title": "Anthropic Files Confidential IPO at $965B Valuation",
+                "category": "BUSINESS",
+                "tags": [
+                    "ipo",
+                    "funding"
+                ],
+                "priority": "MAJOR",
+                "priorityLevel": 1,
+                "sources": [
+                    {
+                        "name": "Bloomberg",
+                        "url": "https://www.bloomberg.com/graphics/2026-investment-outlooks/"
+                    },
+                    {
+                        "name": "The Rundown AI",
+                        "url": "https://www.therundown.ai/p/google-s-nobel-winner-jumps-to-anthropic"
+                    }
+                ],
+                "eventDate": "2026-06-21",
+                "whatHappened": "Anthropic submitted a confidential draft registration statement with the SEC, initiating its IPO process. The filing comes days after closing a $65 billion Series H funding round that valued the company at $965 billion — surpassing rival OpenAI's last private valuation of $300 billion. No listing date or pricing range has been disclosed. Anthropic is backed by Google, Amazon, and Spark Capital.",
+                "whatItCanDo": [
+                    "Gives Anthropic access to public capital markets for the first time, enabling larger infrastructure bets",
+                    "Forces competitors like OpenAI to accelerate their own IPO timelines or risk losing talent to Anthropic's liquidity",
+                    "Sets a public benchmark for AI company valuations — $965B implies the market prices AI differently than any prior tech wave",
+                    "Provides a potential exit for early investors including Dustin Moskovitz and Center for Emerging Risk Research"
+                ],
+                "whatsCatch": [
+                    "At $965B, Anthropic would be priced for perfection — any revenue miss post-IPO could trigger a sharp correction",
+                    "Regulatory scrutiny is intensifying: the Fable 5 / Mythos 5 export control ban adds political risk to any public listing",
+                    "Anthropic has not yet disclosed revenue or path to profitability; inference costs remain enormous",
+                    "IPO markets remain choppy in 2026 — Fed hawkishness raises discount rates for high-growth unprofitable companies"
+                ],
+                "keyTakeaway": "Anthropic's near-$1T IPO would be the defining public markets event for AI in 2026 — and a stress test of whether Wall Street values AI capability or AI profitability.",
+                "howToImprove": "Watch for the S-1 to become public: revenue figures, gross margin on API inference, and burn rate will determine whether the valuation holds. A disclosed timeline before Q4 2026 would signal confidence.",
+                "vsPrevious": "Previously covered OpenAI's IPO filing targeting $1T (2026-06-21). Anthropic's filing, at a lower absolute target but higher implied valuation multiple, now makes two of the three frontier labs publicly filing within 48 hours."
+            },
+            {
+                "id": 2,
+                "title": "Anthropic Secures 220,000 GPU Compute Cluster via SpaceX Colossus Deal",
+                "category": "BUSINESS",
+                "tags": [
+                    "compute",
+                    "infrastructure"
+                ],
+                "priority": "SIGNIFICANT",
+                "priorityLevel": 2,
+                "sources": [
+                    {
+                        "name": "CNBC",
+                        "url": "https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html"
+                    },
+                    {
+                        "name": "LLM Stats",
+                        "url": "https://llm-stats.com/llm-updates"
+                    }
+                ],
+                "eventDate": "2026-06-20",
+                "whatHappened": "Anthropic signed an agreement granting it exclusive access to all compute capacity at SpaceX and xAI's Colossus 1 data center in Memphis, Tennessee — over 300 megawatts powered by more than 220,000 Nvidia GPUs. The deal gives Anthropic the largest single-tenant GPU cluster of any AI lab outside of internal hyperscaler deployments.",
+                "whatItCanDo": [
+                    "Enables Anthropic to train successor models to Fable 5 without relying on Microsoft Azure or Google Cloud",
+                    "Reduces Anthropic's dependency on Google and Amazon — its current primary compute providers and investors",
+                    "300MW of capacity is sufficient to train a frontier model in weeks rather than months at current GPU efficiency",
+                    "Positions Anthropic to deliver on the IPO promise of compute self-sufficiency"
+                ],
+                "whatsCatch": [
+                    "Colossus is partially owned by xAI (Elon Musk's AI company), creating a strategic conflict: Anthropic funding a competitor's infrastructure",
+                    "300MW is still below what Google and Microsoft can deploy internally for their own models",
+                    "Exclusivity terms and duration of the deal have not been disclosed",
+                    "Power availability in Tennessee may constrain expansion beyond current capacity"
+                ],
+                "keyTakeaway": "Anthropic is building compute independence ahead of its IPO — the Colossus deal signals it no longer wants to be infrastructure-dependent on investor-competitors Google and Amazon.",
+                "howToImprove": "Anthropic should disclose the financial terms and duration of the Colossus deal in its S-1 — compute costs are the largest line item for any frontier lab and investors will demand clarity.",
+                "vsPrevious": "First time covering Anthropic's compute strategy. Previous coverage focused on model policy (Fable 5 export ban). This shifts the narrative to infrastructure competition."
+            },
+            {
+                "id": 3,
+                "title": "DeepSeek V4 Launches: 1.6 Trillion Parameter Open Frontier Model",
+                "category": "MODEL",
+                "tags": [
+                    "open-source",
+                    "reasoning",
+                    "coding"
+                ],
+                "priority": "SIGNIFICANT",
+                "priorityLevel": 2,
+                "sources": [
+                    {
+                        "name": "AI Flash Report",
+                        "url": "https://aiflashreport.com/topics/new-ai-model-releases.html"
+                    },
+                    {
+                        "name": "LLM Stats",
+                        "url": "https://llm-stats.com/ai-news"
+                    }
+                ],
+                "eventDate": "2026-06-21",
+                "whatHappened": "DeepSeek released V4, a 1.6 trillion-parameter mixture-of-experts model targeted at frontier-class reasoning and coding tasks. The model is fully open-weight and released under a permissive licence. DeepSeek positions V4 as a direct competitor to GPT-5.x and Claude 5.x class systems. It is the largest openly released model to date and implies significant Chinese state compute investment.",
+                "whatItCanDo": [
+                    "Run complex multi-step reasoning tasks at a scale previously only available via closed APIs",
+                    "Be fine-tuned or deployed on-premise by any organisation with sufficient GPU capacity",
+                    "Undercut US closed-model pricing by enabling zero-API-cost inference for large enterprises",
+                    "Provide a sovereign AI alternative for governments unwilling to depend on US frontier labs"
+                ],
+                "whatsCatch": [
+                    "1.6T parameters requires significant infrastructure — not practical for most users without cloud deployment",
+                    "Chinese model alignment and safety practices are not independently audited",
+                    "US export controls on advanced chips may limit DeepSeek's ability to train successor models",
+                    "Open weights mean misuse potential is high — no usage-based enforcement possible"
+                ],
+                "keyTakeaway": "DeepSeek V4 is the strongest open-weight challenge to US closed frontier models to date, and its release directly undermines the strategic logic of US AI export controls.",
+                "howToImprove": "Independent benchmarking against Claude Mythos 1 and GPT-5 on standardised evals (MMLU, AIME, SWE-bench) needed to confirm competitive positioning. DeepSeek's self-reported scores should be verified.",
+                "vsPrevious": "First time covering DeepSeek V4 specifically. Previously covered GLM-5.2 (2026-06-21 brief) as another Chinese model. V4 is a qualitative step up in scale and ambition."
+            },
+            {
+                "id": 4,
+                "title": "Microsoft Copilot Wave 3 Integrates Claude Natively Across Microsoft 365",
+                "category": "PRODUCT",
+                "tags": [
+                    "agents",
+                    "multimodal",
+                    "coding"
+                ],
+                "priority": "SIGNIFICANT",
+                "priorityLevel": 2,
+                "sources": [
+                    {
+                        "name": "CNBC",
+                        "url": "https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html"
+                    },
+                    {
+                        "name": "Microsoft AI",
+                        "url": "https://microsoft.ai/news/microsoft-build-2026-mai-keynote-transcript/"
+                    }
+                ],
+                "eventDate": "2026-06-20",
+                "whatHappened": "Microsoft announced Wave 3 of Microsoft 365 Copilot featuring multi-model support that includes native integration of Anthropic's Claude alongside OpenAI models. The update also introduces Copilot Cowork — an agentic collaboration mode — and general availability of Agent 365. A new tier, Microsoft 365 E7: The Frontier Suite, bundles all agentic capabilities for enterprise.",
+                "whatItCanDo": [
+                    "Allow enterprise users to switch between Claude and GPT models within the same M365 workflow",
+                    "Run autonomous multi-step tasks via Agent 365 across email, calendar, Teams, and SharePoint",
+                    "Enable Copilot Cowork to handle long-running background tasks without user supervision",
+                    "Give Microsoft enterprise customers access to Claude's coding and reasoning strengths within familiar Office tools"
+                ],
+                "whatsCatch": [
+                    "Multi-model support adds billing complexity — enterprises must manage costs across two API providers",
+                    "Agent 365 autonomous actions raise data governance concerns in regulated industries",
+                    "The E7 Frontier Suite tier pricing has not been publicly disclosed",
+                    "Anthropic's export-control-restricted models (Fable 5, Mythos 5) are not part of the Copilot offering"
+                ],
+                "keyTakeaway": "Microsoft embedding Claude into M365 is the largest enterprise distribution deal for Anthropic — reaching 400M+ commercial Office users without them needing to visit claude.ai.",
+                "howToImprove": "Microsoft should publish a model selection framework so IT admins understand which tasks route to which model and why — opacity here will slow enterprise adoption in compliance-heavy sectors.",
+                "vsPrevious": "First time covering Microsoft's multi-model Copilot strategy. Previously covered Microsoft's independent AI model releases (early June). The Claude integration marks a shift from competition to co-distribution."
+            },
+            {
+                "id": 5,
+                "title": "GitHub Copilot Ends Unlimited Plans, Switches to Metered AI Credits",
+                "category": "PRODUCT",
+                "tags": [
+                    "coding",
+                    "agents"
+                ],
+                "priority": "NOTABLE",
+                "priorityLevel": 3,
+                "sources": [
+                    {
+                        "name": "GitHub Blog",
+                        "url": "https://releasebot.io/updates/openai"
+                    },
+                    {
+                        "name": "n8n Blog",
+                        "url": "https://blog.n8n.io/we-need-re-learn-what-ai-agent-development-tools-are-in-2026/"
+                    }
+                ],
+                "eventDate": "2026-06-01",
+                "whatHappened": "GitHub Copilot shifted from unlimited subscription billing to a usage-based metered system on June 1, 2026. Developers are now billed via GitHub AI Credits at $0.01 each. Microsoft cited escalating inference costs driven by complex agentic coding sessions as the reason — the previous flat-fee model was no longer financially viable at the scale of usage that agentic AI generates.",
+                "whatItCanDo": [
+                    "Align cost with actual compute consumption — light users pay less, heavy agentic users pay more",
+                    "Enable GitHub to offer more powerful future models without subsidising high-compute users via flat fees",
+                    "Give teams granular visibility into AI spend per developer, per project"
+                ],
+                "whatsCatch": [
+                    "Developers running complex agentic tasks could see costs jump dramatically vs. the old unlimited plan",
+                    "Unpredictable billing makes budgeting harder for individual developers and small teams",
+                    "Competitors like Cursor and Windsurf still offer flat-fee plans — GitHub risks losing price-sensitive users"
+                ],
+                "keyTakeaway": "GitHub's billing shift confirms that agentic AI has fundamentally broken the economics of flat-fee AI subscriptions — every provider will eventually move to consumption-based pricing.",
+                "howToImprove": "GitHub should publish a credit consumption calculator showing typical costs for common workflows (PR review, test generation, full-repo refactor) so developers can budget accurately before committing.",
+                "vsPrevious": "First time covering GitHub Copilot billing. Consistent with broader trend of AI providers moving away from unlimited tiers as agentic compute costs scale."
+            }
+        ],
+        "quickHits": [
+            {
+                "title": "Gemini 3.5 Flash GA",
+                "text": "Google's first Gemini 3.5 model is now generally available. Optimised for complex agentic and coding workflows. Positioned below Gemini 3.5 Pro in capability.",
+                "url": "https://aiweekly.co/ai-news-today/google-ai-news"
+            },
+            {
+                "title": "Grok 4.3 on AWS Bedrock",
+                "text": "xAI's Grok 4.3 is now available via Amazon Bedrock, extending its enterprise reach beyond X Premium subscriptions.",
+                "url": "https://llm-stats.com/llm-updates"
+            },
+            {
+                "title": "NVIDIA + ServiceNow Project Arc",
+                "text": "Long-running self-evolving desktop agent for knowledge workers. Part of expanded NVIDIA-ServiceNow enterprise AI partnership.",
+                "url": "https://aiflashreport.com/topics/new-ai-model-releases.html"
+            },
+            {
+                "title": "Alteryx Agent Studio",
+                "text": "Business analysts can now convert existing data workflows into autonomous agents without IT involvement. Launched at Inspire 2026.",
+                "url": "https://aiflashreport.com/topics/new-ai-model-releases.html"
+            },
+            {
+                "title": "Claude Mythos 1 launched",
+                "text": "Anthropic's replacement for the export-banned Mythos 5. Capabilities not yet benchmarked publicly. Available to existing API customers.",
+                "url": "https://llm-stats.com/ai-news"
+            }
+        ]
     }
   ]
 };
