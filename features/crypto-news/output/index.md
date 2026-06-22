@@ -10,4 +10,10 @@ Bitcoin is holding near $64,000, down ~30% YTD but stabilising as geopolitical r
 
 ---
 
+## 2026-06-22 — BTC $63,996 — derivatives signal scepticism despite rally; ETF outflows 6th straight week
+Bitcoin trades near $63,996 as Iran optimism pushed oil lower. ETH +2.4%, SOL +1.5% on the day. BTC spot ETFs recorded $228M in outflows this week — the 6th consecutive week of net redemptions totalling $5.94B. Taiko L2 network halted after a bridge exploit costing ~$1.7M. Bitmine bought $92M in ETH last week. Derivatives show scepticism over sustained rally.
+[Full brief →](2026-06-22.md)
+
+---
+
 *Index starts here*

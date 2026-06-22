@@ -3,205 +3,195 @@ window.LIM_DATA["blockchain-news"] = {
   lastUpdated: "2026-06-22",
   briefs: [
     {
-        "date": "2026-06-22",
-        "indexHeadline": "JaredFromSubway MEV bot drained $15M; Solana ranks #3 in Fortune blockchain list",
-        "indexSummary": "JaredFromSubway, Ethereum's most prolific sandwich attack bot responsible for 70% of MEV sandwich attacks, was drained of $7.5-15M in a honeypot counterattack. Solana ranked #3 in Fortune's 2026 Blockchain and Protocols list, with three of its DeFi protocols in the top 10. Prediction markets reached $24B monthly volume. Ethereum validator staking governance proposal introduced.",
-        "stats": {
-            "total": 4,
-            "major": 1,
-            "significant": 2,
-            "notable": 1
+      date: "2026-06-22",
+      indexHeadline: "Zama launches first confidential DeFi yield vault using homomorphic encryption on Ethereum",
+      indexSummary: "Zama, Morpho, and Steakhouse launched the first confidential DeFi yield vault on Ethereum, using fully homomorphic encryption (FHE) to hide balances and transfer amounts while preserving compliance. The Block Research's 2026 DeFi Outlook notes tokenised RWAs tripled to $16.7B in 2025, and perp DEXs hit all-time high volumes. Taiko L2 bridge was exploited for $1.7M. DefiLlama tracks Ethereum's ongoing DeFi TVL leadership.",
+      stats: {
+        total: 4,
+        major: 1,
+        significant: 2,
+        notable: 1
+      },
+      topSignal: [
+        {
+          headline: "First confidential DeFi vault using FHE launches on Ethereum",
+          detail: "Zama's cUSDC hides balances and transfer amounts via fully homomorphic encryption. Morpho and Steakhouse are co-deployers. Deposits open. Represents a fundamental privacy breakthrough for on-chain finance."
         },
-        "topSignal": [
+        {
+          headline: "Tokenised RWAs tripled to $16.7B — institutions now using blockchain at scale",
+          detail: "The Block Research 2026 DeFi Outlook: RWA tokenisation crossed from pilot to production in 2025. Institutional-grade DeFi is no longer theoretical."
+        },
+        {
+          headline: "Taiko L2 bridge exploit — $1.7M lost, network halted",
+          detail: "Bridge vulnerability exploited on June 22. Network halted pending investigation. Highlights bridge contracts as the persistent weakest link in L2 infrastructure."
+        }
+      ],
+      stories: [
+        {
+          id: 1,
+          title: "Zama + Morpho + Steakhouse Launch First Confidential DeFi Yield Vault on Ethereum Using FHE",
+          category: "DEFI",
+          tags: [
+            "defi",
+            "tvl"
+          ],
+          priority: "MAJOR",
+          priorityLevel: 1,
+          sources: [
             {
-                "headline": "JaredFromSubway MEV bot loses up to $15M to honeypot",
-                "detail": "The bot responsible for ~70% of Ethereum sandwich attacks was itself caught in a deliberate trap. Confirms MEV bots are active attack surfaces. Short-term MEV activity will fall as operators reassess."
+              name: "The Block — Zama, Morpho, Steakhouse confidential vault",
+              url: "https://www.theblock.co/amp/post/404992/zama-morpho-steakhouse-launch-first-confidential-defi-yield-vault-ethereum"
             },
             {
-                "headline": "Solana #3 in Fortune blockchain rankings",
-                "detail": "Meteora, Kamino, and Raydium all in top 10 DeFi protocols. Solana's throughput (65K TPS peak), sub-cent fees, and DeFi ecosystem positioning it as institutional-grade L1 alternative to Ethereum."
-            },
-            {
-                "headline": "Global prediction markets reach $24B monthly volume",
-                "detail": "Combined prediction market activity up from near-zero in 2023 to $24B/month by April 2026. Polymarket dominant. New protocols integrating prediction markets into wallets as native feature."
+              name: "Messari — Understanding Zama",
+              url: "https://messari.io/report/understanding-zama-a-comprehensive-overview"
             }
-        ],
-        "stories": [
+          ],
+          eventDate: "2026-06-23",
+          whatHappened: "Zama (a cryptography research firm specialising in fully homomorphic encryption), Morpho (Ethereum lending protocol), and Steakhouse Financial (DeFi strategy team) jointly launched the first confidential DeFi yield vault on Ethereum. The vault's key innovation is Zama's cUSDC token, which uses FHE to shield depositor balances and transfer amounts from public visibility on-chain — while preserving auditability and compliance checks. Deposits are now open. Zama's GPU-accelerated testnet has been live since June 2026, with mainnet integration targeting Q3 2026.",
+          whatItCanDo: [
+            "Enable institutional and high-net-worth depositors to use Ethereum DeFi without exposing their balances to front-running or competitive intelligence",
+            "Satisfy financial privacy requirements for regulated entities that currently cannot use transparent on-chain protocols",
+            "Create a template for confidential DeFi across all asset classes — lending, DEXs, derivatives",
+            "Demonstrate that FHE can run in production with acceptable performance using GPU acceleration"
+          ],
+          whatsCatch: [
+            "FHE is computationally expensive — vault fees and gas costs will be higher than standard DeFi vaults",
+            "Complexity of FHE makes independent security auditing significantly harder than standard Solidity contracts",
+            "Regulatory treatment of confidential DeFi is unclear — regulators may view transaction shielding as a compliance red flag",
+            "cUSDC is not yet battle-tested at scale — FHE implementation bugs could have catastrophic consequences"
+          ],
+          keyTakeaway: "The Zama-Morpho confidential vault is not an incremental improvement — it is a fundamental architectural shift that makes privacy-preserving DeFi practically deployable for the first time.",
+          howToImprove: "Zama should publish a full security audit from three independent firms before accepting significant deposits. FHE is powerful but novel — the audit bar should be correspondingly higher than standard DeFi protocols.",
+          vsPrevious: "First time covering Zama and FHE-based DeFi in this terminal."
+        },
+        {
+          id: 2,
+          title: "Tokenised RWAs Tripled to $16.7B in 2025 — Institutions Now Use Blockchain at Scale",
+          category: "DEFI",
+          tags: [
+            "tvl",
+            "defi"
+          ],
+          priority: "SIGNIFICANT",
+          priorityLevel: 2,
+          sources: [
             {
-                "id": 1,
-                "title": "JaredFromSubway MEV Bot Drained $7.5-15M — Sandwich Attacker Becomes the Victim",
-                "category": "SECURITY",
-                "tags": [
-                    "mev",
-                    "exploit",
-                    "ethereum",
-                    "hack"
-                ],
-                "priority": "MAJOR",
-                "priorityLevel": 1,
-                "sources": [
-                    {
-                        "name": "CryptoTimes",
-                        "url": "https://www.cryptotimes.io/2026/06/22/ethereum-mev-bot-jaredfromsubway-drained-in-15m-honeypot-attack/"
-                    },
-                    {
-                        "name": "The Block",
-                        "url": "https://www.theblock.co/"
-                    }
-                ],
-                "eventDate": "2026-06-22",
-                "whatHappened": "The Ethereum MEV bot operating under the address known as JaredFromSubway, which has been responsible for up to 70% of all sandwich attacks on Ethereum during peak periods and has extracted tens of millions from retail users since 2023, was drained in a sophisticated honeypot attack. An unknown attacker constructed a deliberately enticing-looking transaction with manipulated parameters that triggered JaredFromSubway's sandwich attack logic. The resulting execution transferred the bot's funds to the attacker. The operator confirmed total losses of approximately $7.5M; on-chain analysis by independent researchers suggests the true total may be closer to $15M.",
-                "whatItCanDo": [
-                    "Temporarily reduce sandwich attack volume on Ethereum as MEV operators audit their bot code for similar vulnerabilities",
-                    "Prove that MEV bots can be defeated at their own game — creating a cat-and-mouse dynamic that benefits retail users short-term",
-                    "Inspire further research into honeypot-based MEV countermeasures as a retail protection strategy",
-                    "Reduce JaredFromSubway's operational capacity significantly — losing $15M from a bot's capital base is existential"
-                ],
-                "whatsCatch": [
-                    "MEV ecosystem will adapt within days — other bots will deploy improved code with honeypot detection",
-                    "The attacker exploited the same aggressive and greedy logic that made JaredFromSubway dangerous to retail users — no moral clarity here",
-                    "Retail users are still exposed to MEV from other bots; this incident does not solve the systemic problem",
-                    "The exploit technique is now public knowledge — could be weaponised against other MEV bots or legitimate DeFi protocols"
-                ],
-                "keyTakeaway": "JaredFromSubway's demise is a watershed moment for MEV awareness — but the structural problem of front-running and sandwich attacks on Ethereum requires protocol-level solutions, not counterattacks.",
-                "howToImprove": "Ethereum core developers should accelerate work on encrypted mempools (EIP-7503 and related proposals) that would make sandwich attacks computationally impossible. The technical path exists; the timeline is the problem.",
-                "vsPrevious": "First time covering JaredFromSubway and MEV exploits in this terminal."
+              name: "The Block — 2026 DeFi Outlook",
+              url: "https://www.theblock.co/post/383120/2026-defi-outlook"
             },
             {
-                "id": 2,
-                "title": "Solana Ranks #3 in Fortune's 2026 Blockchain and Protocols List",
-                "category": "PROTOCOL",
-                "tags": [
-                    "solana",
-                    "defi",
-                    "l1"
-                ],
-                "priority": "SIGNIFICANT",
-                "priorityLevel": 2,
-                "sources": [
-                    {
-                        "name": "CoinFomania",
-                        "url": "https://coinfomania.com/why-solana-just-ranked-3-in-fortunes-blockchain-list/"
-                    },
-                    {
-                        "name": "The Block",
-                        "url": "https://www.theblock.co/"
-                    }
-                ],
-                "eventDate": "2026-06-20",
-                "whatHappened": "Fortune published its 2026 Blockchain and Protocols ranking, placing Solana at #3 behind Bitcoin and Ethereum. Three Solana-native DeFi protocols — Meteora (AMM and liquidity), Kamino (lending and yield), and Raydium (DEX) — ranked in the top 10 most influential DeFi projects globally. Fortune cited Solana's transaction throughput (up to 65,000 TPS peak), sub-cent transaction fees, and the strength of its developer ecosystem as key differentiators.",
-                "whatItCanDo": [
-                    "Attract institutional interest in Solana as a credible alternative to Ethereum for high-frequency DeFi applications",
-                    "Validate Solana's DeFi ecosystem as mature enough for serious capital allocation",
-                    "Accelerate Fortune 500 pilots building on Solana for payments and financial infrastructure",
-                    "Increase competitive pressure on Ethereum L2s (Arbitrum, Base, OP) to improve cost and throughput"
-                ],
-                "whatsCatch": [
-                    "Solana has a history of network outages — the #3 ranking does not mean uptime reliability problems are fully resolved",
-                    "Solana's validator concentration remains higher than Ethereum's — decentralisation concerns persist",
-                    "DeFi TVL on Solana (~$12B) is still well below Ethereum + L2s (~$80B+)",
-                    "The ranking is editorial, not based on a standardised methodology — it reflects prestige but not objective metrics"
-                ],
-                "keyTakeaway": "Solana's Fortune #3 ranking is validation that it has permanently established itself as a tier-1 blockchain — the question is now whether it can close the TVL and developer gap with Ethereum.",
-                "howToImprove": "Solana Foundation should publish a network reliability SLA with historical uptime data and a public incident response framework. Institutional capital requires reliability guarantees that Solana has not yet formally offered.",
-                "vsPrevious": "First time covering Solana ranking and ecosystem in this terminal."
-            },
-            {
-                "id": 3,
-                "title": "Prediction Markets Hit $24B Monthly Volume — Polymarket Dominates",
-                "category": "DEFI",
-                "tags": [
-                    "prediction-markets",
-                    "defi",
-                    "dao"
-                ],
-                "priority": "SIGNIFICANT",
-                "priorityLevel": 2,
-                "sources": [
-                    {
-                        "name": "Antier",
-                        "url": "https://www.antier.com/blogs/prediction-markets-in-crypto-wallets-the-web3-wallet-feature-nobody-saw-coming/"
-                    },
-                    {
-                        "name": "CoinSpaid Media",
-                        "url": "https://coinspaidmedia.com/business/major-crypto-and-fintech-events-june-2026/"
-                    }
-                ],
-                "eventDate": "2026-06-20",
-                "whatHappened": "Global decentralised prediction markets processed $63.5 billion in total notional trading volume in 2025, with combined monthly activity reaching $24 billion by April 2026. Polymarket remains the dominant platform with the majority of market share. A new trend is emerging: prediction market functionality is being integrated directly into crypto wallets as a native feature, eliminating the need to visit a separate DApp.",
-                "whatItCanDo": [
-                    "Embed real-world information pricing into every user's crypto wallet — democratising access to prediction markets",
-                    "Enable institutional traders to hedge geopolitical and macro event risk via decentralised markets without counterparty risk",
-                    "Create a new source of fee revenue for wallet providers integrating prediction market infrastructure",
-                    "Improve information efficiency in crypto markets by creating on-chain price discovery for macro events"
-                ],
-                "whatsCatch": [
-                    "Regulatory status of prediction markets remains uncertain in the US — CFTC has not definitively classified them",
-                    "Wallet-integrated prediction markets increase user exposure to complex financial instruments without adequate risk disclosure",
-                    "$24B monthly volume is large in crypto terms but tiny compared to traditional derivatives markets ($1T+ daily)",
-                    "Liquidity on smaller markets remains thin — large positions can move prices significantly"
-                ],
-                "keyTakeaway": "Prediction markets are graduating from crypto novelty to financial infrastructure — $24B monthly volume proves there is genuine demand for decentralised event-driven trading.",
-                "howToImprove": "The prediction market space needs a unified liquidity layer so capital can flow between Polymarket, Drift, and emerging competitors. Fragmented liquidity keeps spreads wide on all but the largest markets.",
-                "vsPrevious": "First time covering prediction markets in this terminal."
-            },
-            {
-                "id": 4,
-                "title": "Ethereum Validator Staking Governance Proposal — EIP Draft Phase",
-                "category": "PROTOCOL",
-                "tags": [
-                    "ethereum",
-                    "staking",
-                    "governance",
-                    "eip"
-                ],
-                "priority": "NOTABLE",
-                "priorityLevel": 3,
-                "sources": [
-                    {
-                        "name": "The Block",
-                        "url": "https://www.theblock.co/"
-                    },
-                    {
-                        "name": "Ethereum.org",
-                        "url": "https://ethereum.org/en/blog"
-                    }
-                ],
-                "eventDate": "2026-06-19",
-                "whatHappened": "A community governance proposal is circulating in Ethereum research forums that would allow validators to voluntarily redirect 3-5% of their staking rewards to a protocol-level ecosystem development fund governed by a DAO. The proposal is in early community discussion phase and has not yet been assigned an EIP number. It represents a departure from the Ethereum Foundation's current grant-based model toward a validator-funded development model similar to some PoS chains.",
-                "whatItCanDo": [
-                    "Create a sustainable funding stream for Ethereum protocol development that does not depend on Ethereum Foundation's ETH sales",
-                    "Align validator economic interests with protocol health by giving them governance over development funding",
-                    "Fund formal verification, security research, and public goods that current grant processes underfund"
-                ],
-                "whatsCatch": [
-                    "3-5% staking yield reduction would push some validators — especially smaller ones — below break-even on hardware costs",
-                    "Lido and Coinbase staking pools control >40% of staked ETH combined — they would dominate DAO governance",
-                    "Adding programmable validator mechanics increases attack surface and complexity for future upgrades",
-                    "The proposal competes with EOF (EVM Object Format) and Verkle Trees for core developer attention — bandwidth is limited"
-                ],
-                "keyTakeaway": "The validator funding proposal is worth watching as a signal of where Ethereum governance is heading — but its implementation risks and power dynamics need extensive community debate before moving forward.",
-                "howToImprove": "The proposal needs a formal EIP author, a security review of the proposed smart contract mechanism, and explicit modelling of validator economics at 3%, 4%, and 5% redirect levels before it can be seriously considered.",
-                "vsPrevious": "First time covering Ethereum validator funding governance in this terminal."
+              name: "DefiLlama — Protocol Revenue Rankings",
+              url: "https://defillama.com/revenue"
             }
-        ],
-        "quickHits": [
+          ],
+          eventDate: "2026-06-20",
+          whatHappened: "The Block Research's 2026 DeFi Outlook report identifies tokenised real-world assets (RWAs) as the defining theme of 2025: market cap of tokenised public-market RWAs tripled to $16.7 billion as institutions adopted blockchains for issuance and distribution. The report notes that tokenisation crossed from pilot programs to production deployment at scale. Major institutions involved include BlackRock (BUIDL fund), Franklin Templeton, and JPMorgan. Perp DEXs also set all-time highs in volume as execution quality improved.",
+          whatItCanDo: [
+            "Bring traditional capital markets liquidity to DeFi rails — potentially unlocking trillions in institutional capital over the next decade",
+            "Create new yield sources for DeFi protocols by bridging on-chain liquidity with off-chain asset returns",
+            "Validate the thesis that public blockchain infrastructure is suitable for regulated financial instruments",
+            "Drive demand for Ethereum block space and DeFi infrastructure that supports RWA protocols"
+          ],
+          whatsCatch: [
+            "$16.7B is still tiny relative to the $100T+ global capital markets — institutional DeFi is early-stage despite the tripling",
+            "Most RWA tokenisation uses permissioned or semi-permissioned blockchain rails, not fully open DeFi",
+            "Regulatory frameworks for tokenised RWAs vary dramatically across jurisdictions — cross-border use cases remain limited",
+            "Custodian and oracle risk for off-chain assets is significant and not resolved by blockchain technology alone"
+          ],
+          keyTakeaway: "The RWA tripling confirms institutional blockchain adoption is real and accelerating — but the infrastructure supporting it (oracles, custody, legal wrappers) needs to mature faster than the capital deployment.",
+          howToImprove: "DefiLlama should launch a dedicated RWA TVL dashboard breaking down assets by issuer, underlying asset class, and chain — current data is fragmented across multiple trackers and difficult to aggregate.",
+          vsPrevious: "First time covering RWA tokenisation trends in this terminal."
+        },
+        {
+          id: 3,
+          title: "Taiko L2 Bridge Exploit — Network Halted After $1.7M Vulnerability",
+          category: "SECURITY",
+          tags: [
+            "exploit",
+            "bridge"
+          ],
+          priority: "SIGNIFICANT",
+          priorityLevel: 2,
+          sources: [
             {
-                "title": "Okratech + Predict Protocol Web3 partnership",
-                "text": "Utility token project and decentralised prediction market platform partnering to expand DeFi capabilities. Early stage — no TVL deployed yet.",
-                "url": "https://www.cointrust.com/market-news/okratech-token-and-predict-protocol-join-forces-to-advance-web3-innovation"
-            },
-            {
-                "title": "Meteora, Kamino, Raydium top DeFi rankings",
-                "text": "All three Solana-native DeFi protocols placed in Fortune's top 10 most influential DeFi projects. Solana DeFi TVL holding above $12B.",
-                "url": "https://coinfomania.com/why-solana-just-ranked-3-in-fortunes-blockchain-list/"
-            },
-            {
-                "title": "EIP process backlog growing",
-                "text": "Ethereum EIP editors report a growing backlog of proposals as the ecosystem prepares for the next hard fork. Prioritisation decisions expected in Q3 2026.",
-                "url": "https://ethereum.org/en/blog"
+              name: "The Block — DeFi Security",
+              url: "https://www.theblock.co/category/defi"
             }
-        ]
+          ],
+          eventDate: "2026-06-22",
+          whatHappened: "Taiko's Ethereum Layer-2 network halted its bridge operations after an attacker exploited a vulnerability in the bridge smart contract, draining approximately $1.7 million. The Taiko team confirmed the halt and announced an investigation. Taiko uses a based rollup architecture that relies on Ethereum for sequencing, making the bridge the primary interaction surface between Ethereum and Taiko's L2. User funds locked in the bridge during the halt are temporarily inaccessible.",
+          whatItCanDo: [
+            "Force a security audit of all Taiko bridge contracts before operations resume",
+            "Highlight the need for formal verification of bridge contracts across the entire L2 ecosystem",
+            "Trigger a broader review of based rollup bridge architecture across the Ethereum scaling ecosystem"
+          ],
+          whatsCatch: [
+            "Based rollup security does not guarantee bridge security — these are separate concerns that are often conflated",
+            "No resumption timeline has been announced — prolonged halt would damage Taiko's ecosystem development timeline",
+            "The exploit methodology has not been fully disclosed — other L2s may have similar vulnerabilities",
+            "Bridge exploits have historically been the largest category of DeFi losses by volume (Ronin $625M, Wormhole $320M)"
+          ],
+          keyTakeaway: "At $1.7M Taiko's exploit is small, but the pattern is old: bridge contracts are the most dangerous component of any L2 stack and deserve formal verification, not just auditing.",
+          howToImprove: "All L2 projects should implement a standardised bridge security framework with formal verification requirements. The Ethereum Foundation should fund this as a public good rather than leaving each team to independently solve the same problem.",
+          vsPrevious: "First time covering Taiko in this terminal."
+        },
+        {
+          id: 4,
+          title: "Perp DEXs Hit All-Time High Volume in 2025-2026 — Prediction Markets Surge to $24B/Month",
+          category: "DEFI",
+          tags: [
+            "defi",
+            "tvl"
+          ],
+          priority: "NOTABLE",
+          priorityLevel: 3,
+          sources: [
+            {
+              name: "The Block — 2026 DeFi Outlook",
+              url: "https://www.theblock.co/post/383120/2026-defi-outlook"
+            },
+            {
+              name: "DefiLlama",
+              url: "https://defillama.com/"
+            }
+          ],
+          eventDate: "2026-06-20",
+          whatHappened: "The Block Research's 2026 DeFi Outlook reports that perpetual DEXs (decentralised perpetual futures exchanges) set all-time high trading volumes through 2025-2026 as execution quality improved and incentive programs attracted traders from centralised exchanges. Separately, prediction market activity reignited in 2025 through broader distribution via crypto wallets and a wider range of event contracts, with combined monthly volume reaching $24 billion by April 2026. Polymarket dominates prediction market market share.",
+          whatItCanDo: [
+            "Signal that DeFi derivatives are maturing into a credible alternative to CEX derivatives for active traders",
+            "Create new revenue streams for DeFi protocols as volume grows and fee capture improves",
+            "Embed prediction market functionality into everyday crypto wallets, reaching millions of users without requiring DApp visits",
+            "Generate on-chain price discovery for real-world events that improves information efficiency in related markets"
+          ],
+          whatsCatch: [
+            "Perp DEX volumes are still dominated by incentive farming — sustainable organic volume is a fraction of reported totals",
+            "Regulatory status of on-chain prediction markets remains uncertain globally — CFTC classification pending",
+            "Liquidity on smaller prediction markets remains thin — large positions move prices significantly",
+            "Perp DEX user experience still lags CEX for most traders — onboarding and UX friction remain barriers"
+          ],
+          keyTakeaway: "DeFi derivatives are crossing from niche to infrastructure — perp DEXs and prediction markets together represent the most significant DeFi volume expansion since 2021 without the accompanying bubble dynamics.",
+          howToImprove: "DefiLlama and The Block should publish a standardised methodology for organic vs. incentivised perp DEX volume so investors can assess true adoption. Raw volume numbers without this distinction are misleading.",
+          vsPrevious: "First time covering perp DEX and prediction market volume trends in this terminal."
+        }
+      ],
+      quickHits: [
+        {
+          title: "Zama GPU testnet live — mainnet Q3 2026",
+          text: "Zama's FHE infrastructure reached GPU-accelerated testnet in June. Mainnet integration into Ethereum planned Q3 2026.",
+          url: "https://messari.io/report/understanding-zama-a-comprehensive-overview"
+        },
+        {
+          title: "DefiLlama: Ethereum DeFi TVL leads all chains",
+          text: "Ethereum maintains DeFi TVL leadership per DefiLlama. Protocol revenue rankings show Uniswap and Aave in top 5 by retained revenue.",
+          url: "https://defillama.com/revenue"
+        },
+        {
+          title: "a16z crypto: RWA infrastructure is the 2026 investment thesis",
+          text: "Andreessen Horowitz crypto fund publicly backing RWA infrastructure plays — oracles, custody bridges, and legal wrapper protocols.",
+          url: "https://a16zcrypto.com/"
+        }
+      ]
     }
   ]
 };

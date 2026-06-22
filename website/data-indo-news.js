@@ -3,202 +3,185 @@ window.LIM_DATA["indo-news"] = {
   lastUpdated: "2026-06-22",
   briefs: [
     {
-        "date": "2026-06-22",
-        "indexHeadline": "Indonesian students protest over fuel and food prices; Prabowo faces first major public pressure test",
-        "indexSummary": "Hundreds of students rallied in Jakarta demanding lower fuel and food prices and urging President Prabowo to roll back costly state spending programs. Indonesia's economy grew 5.61% in Q1 2026 but economic pressures are not reaching ordinary citizens. A new green economy milestone was reached with Indonesia's first green sukuk. Bank Indonesia hiked rates 100bps cumulatively to defend the rupiah.",
-        "stats": {
-            "total": 4,
-            "major": 1,
-            "significant": 2,
-            "notable": 1
+      date: "2026-06-22",
+      indexHeadline: "Three protest groups hit Jakarta; PMII demands full cabinet evaluation under Prabowo",
+      indexSummary: "Three separate protest groups gathered in Jakarta on June 22 — PMII demanding Merah Putih Cabinet evaluation, Jakarta Community Alliance supporting free meals, and KNARA demanding a National Agrarian Reform Body. Indonesia projects 3.88 million green jobs in 2026. PT Pupuk Indonesia began exporting urea to Australia. Indonesian police seized Rp97.8B worth of etomidate at Soekarno-Hatta.",
+      stats: {
+        total: 4,
+        major: 1,
+        significant: 2,
+        notable: 1
+      },
+      topSignal: [
+        {
+          headline: "Three protest groups in Jakarta — PMII demands Merah Putih Cabinet evaluation",
+          detail: "PB PMII, Jakarta Community Alliance, and KNARA (agrarian reform coalition) all mobilised on June 22. PMII's call for full cabinet evaluation is the most significant political demand."
         },
-        "topSignal": [
+        {
+          headline: "Indonesia to create 3.88 million green jobs in 2026 — Ministry of Manpower",
+          detail: "Green economy employment projection from Employment Outlook 2026. Low-emission farming and renewable energy transition cited as primary drivers."
+        },
+        {
+          headline: "PT Pupuk Indonesia exports first 47,250-tonne urea shipment to Australia",
+          detail: "Part of a 250,000-tonne trade agreement. Arrives at Port of Brisbane. Significant for Indonesia's agricultural export diversification strategy."
+        }
+      ],
+      stories: [
+        {
+          id: 1,
+          title: "Three Groups Protest in Jakarta — PMII Demands Full Evaluation of Merah Putih Cabinet",
+          category: "POLITICS",
+          tags: [
+            "presiden",
+            "dpr"
+          ],
+          priority: "MAJOR",
+          priorityLevel: 1,
+          sources: [
             {
-                "headline": "Student protests hit Jakarta over fuel and food costs",
-                "detail": "Hundreds gathered demanding lower prices and spending rollbacks. First significant public pressure on Prabowo since taking office. Echoes of 1998 Reform era student movements in optics, though scale is far smaller."
+              name: "Tempo.co — Jakarta Braces for Three Protests",
+              url: "https://en.tempo.co/read/2109674/jakarta-braces-for-three-protests-across-the-city-today"
             },
             {
-                "headline": "5.61% GDP growth — but welfare gap growing",
-                "detail": "Indonesia's macro numbers are strong but protests show growth not reaching working-class households. Fuel subsidies were cut under budget reform, directly raising transport costs."
-            },
-            {
-                "headline": "Bank Indonesia 100bps hike hits domestic borrowers",
-                "detail": "Rate hikes necessary for currency stability but raise borrowing costs for SMEs and households. Mortgage rates and consumer credit rates will follow. Squeeze on middle-income Indonesians intensifying."
+              name: "Antara News",
+              url: "https://en.antaranews.com/"
             }
-        ],
-        "stories": [
+          ],
+          eventDate: "2026-06-22",
+          whatHappened: "Three separate protest groups mobilised in Jakarta on June 22, 2026. The Central Board of the Indonesian Islamic Students Movement (PB PMII) held the most politically significant rally, calling for a total evaluation of President Prabowo Subianto's Merah Putih Cabinet and Deputy President Gibran Rakabuming Raka's administration. Separately, the Jakarta Community Alliance held a demonstration supporting the free nutritious meals program (makan bergizi gratis). A third group, the National Coalition for Agrarian Reform (KNARA), demanded the immediate establishment of the National Agrarian Reform Body (BNARA). Police monitored all three gatherings.",
+          whatItCanDo: [
+            "Signal growing organised civil society pressure on the Prabowo administration from across the political spectrum",
+            "PMII's demand for a cabinet evaluation could embolden other student and civil society groups to escalate demands",
+            "KNARA's agrarian reform demand draws attention to unresolved land rights conflicts across the archipelago",
+            "Competing protest agendas on the same day reduce the clarity of the political message — government can dismiss each individually"
+          ],
+          whatsCatch: [
+            "Scale remains limited — hundreds, not thousands, with no national coordination yet",
+            "Prabowo's coalition controls ~80% of parliament, limiting opposition channels for amplification",
+            "The pro-government Jakarta Community Alliance protest complicates the narrative: not all protesters oppose Prabowo",
+            "Student protests in Indonesia historically require sustained momentum over weeks to achieve policy impact"
+          ],
+          keyTakeaway: "Multiple protest groups on the same day reflects diffuse but real social pressure on Prabowo — the critical question is whether PMII can unify demands into a sustained national movement.",
+          howToImprove: "The Prabowo administration should respond to PMII's evaluation demand with a concrete accountability mechanism — ignoring organised Islamic student movements has historically backfired for Indonesian governments.",
+          vsPrevious: "First time covering Jakarta protests under the Prabowo administration in this terminal."
+        },
+        {
+          id: 2,
+          title: "Indonesia's Green Economy to Create 3.88 Million Jobs in 2026 — Ministry of Manpower",
+          category: "ECONOMY",
+          tags: [
+            "infrastruktur",
+            "pendidikan"
+          ],
+          priority: "SIGNIFICANT",
+          priorityLevel: 2,
+          sources: [
             {
-                "id": 1,
-                "title": "Indonesian Students Protest in Jakarta, Demand Prabowo Roll Back Fuel and Food Prices",
-                "category": "SOCIAL",
-                "tags": [
-                    "protest",
-                    "prabowo",
-                    "ekonomi"
-                ],
-                "priority": "MAJOR",
-                "priorityLevel": 1,
-                "sources": [
-                    {
-                        "name": "ABC News",
-                        "url": "https://abcnews.com/International/wireStory/indonesian-students-protest-government-policies-economic-pressures-grow-133810558"
-                    },
-                    {
-                        "name": "Antara",
-                        "url": "https://en.antaranews.com/"
-                    }
-                ],
-                "eventDate": "2026-06-21",
-                "whatHappened": "Hundreds of university students staged demonstrations in Jakarta and several regional cities, demanding lower fuel and food prices and calling on President Prabowo Subianto to reverse what they described as costly and regressive state spending programs. The protests are the largest since Prabowo took office and reflect growing frustration among urban youth and working-class Indonesians over the gap between strong macroeconomic growth data and everyday cost-of-living pressures. Police monitored but did not disperse gatherings.",
-                "whatItCanDo": [
-                    "Pressure the Prabowo administration to review fuel subsidy policy ahead of the July state budget revision",
-                    "Signal to international investors that Indonesian political stability has more complexity than the smooth post-election narrative suggested",
-                    "Mobilise broader civil society engagement — student protests in Indonesia have historically been precursors to larger movements",
-                    "Push the government to announce targeted social assistance measures (bantuan sosial) to defuse pressure"
-                ],
-                "whatsCatch": [
-                    "Student protest scale remains limited — hundreds, not thousands, and not yet coordinated nationally",
-                    "Prabowo's coalition controls nearly 80% of parliament, limiting opposition ability to amplify grievances politically",
-                    "The government can argue that fuel price adjustments were necessary fiscal reforms, not attacks on welfare",
-                    "Indonesia's media environment has become more restricted — major amplification through mainstream channels is limited"
-                ],
-                "keyTakeaway": "Indonesia's growth story has a distributional problem — 5.61% GDP growth is real, but fuel and food price pressures are eroding household purchasing power faster than wages are rising.",
-                "howToImprove": "The Prabowo government needs to either restore targeted fuel subsidies for low-income households (expensive) or dramatically accelerate bantuan sosial cash transfers (politically faster). Neither is currently announced.",
-                "vsPrevious": "First time covering social protests in the Prabowo era in this terminal."
-            },
-            {
-                "id": 2,
-                "title": "Constitutional Economics Debate Intensifies — State Challenges Market Orthodoxy",
-                "category": "POLITICS",
-                "tags": [
-                    "ekonomi",
-                    "konstitusi",
-                    "kebijakan"
-                ],
-                "priority": "SIGNIFICANT",
-                "priorityLevel": 2,
-                "sources": [
-                    {
-                        "name": "Zona Satu News",
-                        "url": "https://www.zonasatunews.com/ketika-negara-berbelok-arah-ke-koordinat-ekonomi-konstitusi-perang-narasi-dan-benturan-dua-paradigma-ekonomi/comment-page-1/"
-                    },
-                    {
-                        "name": "World Bank Indonesia",
-                        "url": "https://www.worldbank.org/ext/en/country/indonesia"
-                    }
-                ],
-                "eventDate": "2026-06-20",
-                "whatHappened": "A significant policy debate is intensifying within Indonesian government and academic circles over the country's economic direction. One faction — aligned with nationalistic elements of the Prabowo coalition — advocates for 'constitutional economics,' a framework that would prioritise state-led development and resource nationalism over market-oriented policies endorsed by the IMF, World Bank, and Indonesia's technocratic economic team. The debate has practical implications for foreign investment policy, mining licensing, and state-owned enterprise reform.",
-                "whatItCanDo": [
-                    "Shift investment policy away from FDI liberalisation toward greater state control of strategic sectors",
-                    "Affect licensing terms for mining, energy, and digital economy sectors where foreign capital is currently dominant",
-                    "Change the calculus for international businesses considering Indonesia as a manufacturing destination post-China"
-                ],
-                "whatsCatch": [
-                    "Constitutional economics frameworks have a poor track record in Indonesia — similar rhetoric preceded costly nationalisation decisions in the 2010s",
-                    "Indonesia's technocratic finance team (Sri Mulyani et al.) remains institutionally strong and market-oriented",
-                    "The debate may be more political signalling than genuine policy direction — Prabowo has not yet formally endorsed the nationalist position",
-                    "Foreign investors will watch closely: any shift toward resource nationalism would increase country risk premium"
-                ],
-                "keyTakeaway": "The constitutional economics debate is the clearest sign yet that Indonesia's economic policy direction under Prabowo is genuinely contested — and the outcome will determine FDI trajectory for the next five years.",
-                "howToImprove": "Watch the July APBN revision and any changes to mining licensing terms: those are where ideology becomes concrete policy. International investors should monitor OJK and BKPM communications closely.",
-                "vsPrevious": "First time covering Indonesia's constitutional economics debate in this terminal."
-            },
-            {
-                "id": 3,
-                "title": "Indonesia Activates First Green Sukuk — IDR Climate Finance Milestone",
-                "category": "ENVIRONMENT",
-                "tags": [
-                    "green-economy",
-                    "sukuk",
-                    "iklim"
-                ],
-                "priority": "SIGNIFICANT",
-                "priorityLevel": 2,
-                "sources": [
-                    {
-                        "name": "The Diplomatic Insight",
-                        "url": "https://www.facebook.com/TheDiplomaticInsight/posts/june-2026-marks-a-pivotal-moment-in-indonesias-green-economy-journey-for-the-fir/1610025311126066/"
-                    },
-                    {
-                        "name": "OECD Indonesia",
-                        "url": "https://www.oecd.org/en/publications/foundations-for-growth-and-competitiveness-2026_40a7532f-en/full-report/indonesia_e440b90a.html"
-                    }
-                ],
-                "eventDate": "2026-06-20",
-                "whatHappened": "Indonesia activated its first large-scale green sukuk (Islamic bond) specifically structured for renewable energy transition projects. The instrument marks a capital market milestone for Indonesia's stated goal of achieving carbon neutrality by 2060. The sukuk will fund solar and geothermal energy projects across Java and Sumatra. Indonesia has the world's largest geothermal potential and is gradually transitioning away from coal dependence.",
-                "whatItCanDo": [
-                    "Unlock international Islamic finance capital (estimated $3-4 trillion market) for Indonesian green projects",
-                    "Support Indonesia's NDC (Nationally Determined Contribution) commitments under the Paris Agreement",
-                    "Create a template for other Muslim-majority developing nations to finance energy transition via sukuk",
-                    "Reduce Indonesia's dependence on coal-fired power (currently ~60% of electricity generation)"
-                ],
-                "whatsCatch": [
-                    "Green sukuk proceeds must be transparently allocated — Indonesia's past green bond reporting has had gaps",
-                    "Coal remains politically protected in Indonesia due to the mining industry's influence on Golkar and other coalition parties",
-                    "Geothermal development faces land rights conflicts in Sumatra and Sulawesi",
-                    "The sukuk size has not been publicly disclosed — scale matters for impact"
-                ],
-                "keyTakeaway": "Indonesia's green sukuk is a genuine capital market innovation that could accelerate energy transition financing — but coal dependence will not be resolved by financial instruments alone.",
-                "howToImprove": "PLN (state electricity company) should publish a detailed transition roadmap showing coal plant retirement schedules. Without decommissioning timelines, green sukuk proceeds risk being used to build new renewable capacity while coal stays online.",
-                "vsPrevious": "First time covering Indonesia green finance in this terminal."
-            },
-            {
-                "id": 4,
-                "title": "Infrastructure Bottlenecks Cost Indonesia 0.5-1% Annual GDP — OECD",
-                "category": "ECONOMY",
-                "tags": [
-                    "infrastruktur",
-                    "logistik",
-                    "pertumbuhan"
-                ],
-                "priority": "NOTABLE",
-                "priorityLevel": 3,
-                "sources": [
-                    {
-                        "name": "OECD",
-                        "url": "https://www.oecd.org/en/publications/foundations-for-growth-and-competitiveness-2026_40a7532f-en/full-report/indonesia_e440b90a.html"
-                    },
-                    {
-                        "name": "Business Indonesia",
-                        "url": "https://business-indonesia.org/news/indonesia-s-economic-outlook-2026-resilient-but-acceleration-elusive"
-                    }
-                ],
-                "eventDate": "2026-06-18",
-                "whatHappened": "The OECD's 2026 Indonesia competitiveness report estimates that infrastructure bottlenecks — gaps in electricity reliability, road connectivity, port capacity, and urban transport outside Java — cost the economy 0.5-1.0% of GDP per year in lost potential output. The report notes that logistics costs in Indonesia are among the highest in ASEAN, reducing export competitiveness. The government's Nusantara capital relocation project has not addressed inter-island connectivity gaps.",
-                "whatItCanDo": [
-                    "If resolved, infrastructure improvement could push Indonesia's growth rate toward 6.5-7% — significantly above current trajectory",
-                    "Reducing logistics costs by 20% would improve export competitiveness for manufactured goods from Sulawesi, Kalimantan, and Papua",
-                    "Better electricity reliability outside Java would enable manufacturing investment to spread beyond the island"
-                ],
-                "whatsCatch": [
-                    "Infrastructure investment takes 5-10 years to deliver economic benefit — no short-term fix",
-                    "Nusantara capital project is consuming government capital that could otherwise fund inter-island connectivity",
-                    "Land acquisition for infrastructure projects remains slow due to legal complexity and local resistance",
-                    "Private sector participation in toll roads and ports has been lower than projected"
-                ],
-                "keyTakeaway": "Indonesia's infrastructure gap is a known, quantified drag on growth — the question is whether the Prabowo government will prioritise inter-island connectivity over prestige projects like Nusantara.",
-                "howToImprove": "The government's RPJMN (medium-term development plan) revision due in Q3 2026 should prioritise electricity and port connectivity for eastern Indonesia over continued Nusantara spending.",
-                "vsPrevious": "First time covering Indonesia infrastructure in this terminal."
+              name: "Antara — Ministry Projects 3.88 Million Green Jobs",
+              url: "https://en.antaranews.com/news/419999/ministry-projects-388-million-green-jobs-in-indonesia-in-2026"
             }
-        ],
-        "quickHits": [
+          ],
+          eventDate: "2026-06-21",
+          whatHappened: "Indonesia's Ministry of Manpower projected that the green economy will create approximately 3.88 million employment opportunities across Indonesia in 2026, according to the Employment Outlook 2026 report. The projection covers jobs in renewable energy, sustainable agriculture, eco-tourism, and green manufacturing. The government is simultaneously preparing a low-emission rice farming transition, targeting low- and medium-yield production areas across Java and Sumatra.",
+          whatItCanDo: [
+            "Provide a counter-narrative to the protest concerns about economic pressures — green jobs as policy response",
+            "Support Indonesia's Paris Agreement NDC commitments through domestic job creation incentives",
+            "Create training and reskilling opportunities for workers displaced from coal and conventional agriculture",
+            "Attract international green finance and climate fund flows to support the job creation program"
+          ],
+          whatsCatch: [
+            "3.88M is a projection — actual job creation depends on investment flows and policy implementation that remain uncertain",
+            "Green jobs often pay less than fossil fuel sector jobs, particularly in the early transition phase",
+            "Low-emission farming transition requires significant farmer education and equipment investment — timelines typically 3-5 years",
+            "The coal mining sector employs ~100,000 directly and many more indirectly — green job creation must absorb this workforce"
+          ],
+          keyTakeaway: "3.88M green jobs is a politically useful number, but the government needs a detailed transition plan showing how coal workers specifically will be reskilled and rehired.",
+          howToImprove: "The Ministry should publish a sector-by-sector breakdown of the 3.88M jobs — renewable energy vs. agriculture vs. eco-tourism — with regional distribution data showing which provinces benefit most.",
+          vsPrevious: "First time covering Indonesia green economy employment in this terminal."
+        },
+        {
+          id: 3,
+          title: "PT Pupuk Indonesia Exports First 47,250-Tonne Urea Shipment to Australia",
+          category: "ECONOMY",
+          tags: [
+            "ekspor",
+            "pertamina"
+          ],
+          priority: "SIGNIFICANT",
+          priorityLevel: 2,
+          sources: [
             {
-                "title": "Prabowo social spending programs under scrutiny",
-                "text": "Student protesters specifically cited free lunch program (makan bergizi gratis) as expensive but poorly targeted. Program costs IDR 71T per year.",
-                "url": "https://abcnews.com/International/wireStory/indonesian-students-protest-government-policies-economic-pressures-grow-133810558"
-            },
-            {
-                "title": "Antara: BI rate hike affects mortgage rates",
-                "text": "Indonesian banks expect to raise KPR (mortgage) rates by 50-75bps following BI's cumulative 100bps hike. Housing market to cool.",
-                "url": "https://en.antaranews.com/"
-            },
-            {
-                "title": "Indonesia Q1 GDP 5.61% beats estimates",
-                "text": "Growth accelerated from Q4 2025's 5.39%, supported by commodity revenues and domestic consumption. Full-year target 4.9-5.7%.",
-                "url": "https://www.bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_289426.aspx"
+              name: "Antara — Indonesia's First Urea Shipment to Australia",
+              url: "https://en.antaranews.com/news/419983/indonesias-first-47250-tonne-urea-shipment-reaches-australia"
             }
-        ]
+          ],
+          eventDate: "2026-06-22",
+          whatHappened: "State fertiliser producer PT Pupuk Indonesia delivered its first urea export consignment of 47,250 tonnes to the Port of Brisbane, Australia, on June 22, 2026. The shipment is part of a government-to-government trade agreement between Indonesia and Australia for 250,000 tonnes of urea. This is PT Pupuk Indonesia's first significant agricultural commodity export to Australia, part of Indonesia's strategy to diversify export revenues and deepen trade ties with Australia.",
+          whatItCanDo: [
+            "Open a recurring export channel for Indonesian urea to Australia worth approximately $100-120M at current prices for the full 250,000T",
+            "Strengthen the Indonesia-Australia trade relationship ahead of IA-CEPA review discussions",
+            "Support PT Pupuk Indonesia's revenue diversification beyond domestic subsidised fertiliser sales",
+            "Demonstrate SOE capacity to compete in international markets — relevant for BUMN reform narrative"
+          ],
+          whatsCatch: [
+            "Urea export revenue depends on global urea prices, which are volatile and currently below 2022 highs",
+            "Australia's domestic fertiliser market is competitive — sustaining the contract beyond the initial 250,000T requires price competitiveness",
+            "PT Pupuk Indonesia's primary mandate is domestic food security — large exports could create domestic supply tension if needed"
+          ],
+          keyTakeaway: "Indonesia's first major urea export to Australia is a concrete SOE trade success — modest in scale but significant as a proof of concept for agricultural export diversification.",
+          howToImprove: "PT Pupuk Indonesia should disclose the contract pricing and duration to allow market assessment of whether this is a sustainable commercial arrangement or a one-time diplomatic trade.",
+          vsPrevious: "First time covering PT Pupuk Indonesia in this terminal."
+        },
+        {
+          id: 4,
+          title: "Police Seize Rp97.8B Etomidate Haul at Soekarno-Hatta — International Ring Bust",
+          category: "LAW",
+          tags: [
+            "hukum",
+            "kpk"
+          ],
+          priority: "NOTABLE",
+          priorityLevel: 3,
+          sources: [
+            {
+              name: "Antara — Police Confiscate Rp97B Etomidate",
+              url: "https://en.antaranews.com/news/420001/police-confiscate-rp97-bln-worth-of-etomidate-from-international-ring"
+            }
+          ],
+          eventDate: "2026-06-22",
+          whatHappened: "The Soekarno-Hatta Airport Police seized 8.6 litres of etomidate — a Class II narcotic — with a street value of Rp97.8 billion (approximately US$5.3 million) from an international drug trafficking ring. The seizure targeted an organised network operating through Soekarno-Hatta. Etomidate is a sedative anaesthetic increasingly abused in Indonesia and Southeast Asia. Multiple arrests were made in connection with the seizure.",
+          whatItCanDo: [
+            "Demonstrate the effectiveness of airport-based narcotic interdiction at Indonesia's busiest international gateway",
+            "Disrupt a specific international trafficking route for etomidate entering Indonesia",
+            "Signal to international trafficking networks that Soekarno-Hatta surveillance has improved"
+          ],
+          whatsCatch: [
+            "Etomidate trafficking has been rising across Southeast Asia — one seizure addresses a symptom, not the source supply chain",
+            "The international network's origin country and full structure have not been disclosed",
+            "Rp97.8B in street value suggests a significant but not extraordinary seizure by regional standards"
+          ],
+          keyTakeaway: "The etomidate bust at Soekarno-Hatta highlights Indonesia's growing vulnerability to synthetic drug trafficking via international air routes — a challenge requiring regional cooperation, not just airport security.",
+          howToImprove: "Indonesia should fast-track its bilateral drug enforcement agreements with origin countries identified in the investigation. Airport interdiction without upstream disruption only creates temporary setbacks for networks.",
+          vsPrevious: "First time covering drug trafficking in this terminal."
+        }
+      ],
+      quickHits: [
+        {
+          title: "Jakarta prepares for city's 500th anniversary",
+          text: "Antara reports Jakarta is advancing global city positioning plans tied to its 2027 500th anniversary. Cultural and infrastructure milestones being organised.",
+          url: "https://en.antaranews.com/news/419991/jakarta-prepares-as-global-city-push-ahead-of-the-500th-anniversary"
+        },
+        {
+          title: "Low-emission rice farming transition begins",
+          text: "Government targets low- and medium-yield rice production areas for transition to low-emission systems. Java and Sumatra priority zones.",
+          url: "https://en.antaranews.com/news/419995/indonesia-prepares-low-emission-farming-transition"
+        },
+        {
+          title: "Trade Minister pushes franchise expansion globally",
+          text: "Minister Budi Santoso urges Indonesian franchises to expand internationally — citing established market share and management as key advantages.",
+          url: "https://en.antaranews.com/news/419944/indonesia-taps-franchise-models-to-boost-global-expansion"
+        }
+      ]
     }
   ]
 };

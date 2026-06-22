@@ -3,199 +3,182 @@ window.LIM_DATA["global-news"] = {
   lastUpdated: "2026-06-22",
   briefs: [
     {
-        "date": "2026-06-22",
-        "indexHeadline": "US-Iran talks nearly collapse then resume; de-confliction cell formed for Lebanon",
-        "indexSummary": "Iran initially refused to continue nuclear talks after Trump's public threats but resumed after Qatar-Pakistan mediation. A US-Iran de-confliction cell was established for Lebanon. A Strait of Hormuz communication line was set up to protect energy shipping. Ukraine escalated attacks on Russian fuel infrastructure in Crimea. FIFA World Cup continues.",
-        "stats": {
-            "total": 4,
-            "major": 2,
-            "significant": 1,
-            "notable": 1
+      date: "2026-06-22",
+      indexHeadline: "US-Iran talks survive collapse scare; Al Jazeera cameraman killed in Gaza",
+      indexSummary: "Iran suspended US nuclear talks after Trump threats then returned following Qatar-Pakistan mediation. A joint US-Iran de-confliction cell for Lebanon was established — first military coordination since 1979. A Strait of Hormuz communication line was created. In Gaza, Al Jazeera cameraman Ahmed Wishah was killed in an Israeli strike. Alan Greenspan died aged 100.",
+      stats: {
+        total: 4,
+        major: 2,
+        significant: 1,
+        notable: 1
+      },
+      topSignal: [
+        {
+          headline: "US-Iran talks resume after near-collapse — de-confliction cell for Lebanon created",
+          detail: "Iran suspended talks after Trump media threats, returned after Qatar-Pakistan mediation. First US-Iran military coordination cell since 1979, covering Lebanon operations."
         },
-        "topSignal": [
+        {
+          headline: "Al Jazeera cameraman Ahmed Wishah killed in Israeli airstrike in Gaza",
+          detail: "Confirmed by Al Jazeera on June 20. Part of ongoing IDF operations in Gaza. Media freedom organisations condemning the strike."
+        },
+        {
+          headline: "Hormuz communication line established — energy shipping risk premium falls",
+          detail: "Direct US-Iran naval line to ensure safe passage through the Strait. ~20% of global oil and 25% of LNG flows through daily. Oil prices fell 3% on the news."
+        }
+      ],
+      stories: [
+        {
+          id: 1,
+          title: "US-Iran Nuclear Talks Survive Near-Collapse — De-Confliction Cell Formed for Lebanon",
+          category: "DIPLOMACY",
+          tags: [
+            "nuclear",
+            "sanctions"
+          ],
+          priority: "MAJOR",
+          priorityLevel: 1,
+          sources: [
             {
-                "headline": "US-Iran talks survive near-collapse, resume in Qatar",
-                "detail": "Iran suspended talks after Trump's media threats but returned after Qatar and Pakistan mediation. Talks described as 'positive and constructive.' No deal yet — next round unscheduled."
+              name: "CNN World Live — Iran/Israel/Lebanon",
+              url: "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"
             },
             {
-                "headline": "Lebanon de-confliction cell: US and Iran in direct coordination",
-                "detail": "First formal US-Iran military coordination mechanism since 1979. Facilitated by Qatar and Pakistan. Designed to prevent accidental escalation as Israeli-Hezbollah conflict continues despite ceasefire."
-            },
-            {
-                "headline": "Strait of Hormuz communication line established",
-                "detail": "Direct line between US and Iranian naval command to ensure safe passage. Approximately 20% of global oil transit flows through the Strait. A closure would cause immediate global energy shock."
+              name: "WEF — Uncertainty Around US-Iran Talks",
+              url: "https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/"
             }
-        ],
-        "stories": [
+          ],
+          eventDate: "2026-06-21",
+          whatHappened: "Iran suspended participation in US nuclear and sanctions talks in Qatar after President Trump made threatening statements in a media interview. Following rapid mediation by Qatar and Pakistan, Iran returned to the table. Both sides described resumed talks as held in a 'positive and constructive atmosphere.' As part of the same diplomatic track, the US and Iran agreed to establish a joint de-confliction cell for Lebanon — the first formal US-Iran military coordination mechanism since the 1979 Islamic Revolution — to prevent accidental escalation in the ongoing Israel-Hezbollah conflict.",
+          whatItCanDo: [
+            "Unlock potential for sanctions relief on Iranian oil exports — adding 1-1.5 million barrels/day to global supply",
+            "Reduce Strait of Hormuz risk premium embedded in current oil prices",
+            "Create a precedent for US-Iran direct communication extending to other flashpoints",
+            "Give Qatar and Pakistan outsized geopolitical leverage as co-mediators"
+          ],
+          whatsCatch: [
+            "Trump's unpredictability is the single largest risk — one more media statement could end talks",
+            "Khamenei must approve any deal; his position remains hardline on enrichment levels",
+            "Israel has stated it will act unilaterally if Iran approaches weapons-grade enrichment",
+            "The Lebanon cell coordinates but does not stop active hostilities on the ground"
+          ],
+          keyTakeaway: "The US-Iran de-confliction cell is the most significant diplomatic development in 47 years — fragile, but structurally new.",
+          howToImprove: "A UN or Swiss observer role in the de-confliction cell would give both sides deniability and create an independent record of communications — essential for trust-building.",
+          vsPrevious: "First time covering US-Iran talks and Lebanon de-confliction in this terminal."
+        },
+        {
+          id: 2,
+          title: "Al Jazeera Cameraman Ahmed Wishah Killed in Israeli Airstrike in Gaza",
+          category: "CONFLICT",
+          tags: [
+            "war"
+          ],
+          priority: "MAJOR",
+          priorityLevel: 1,
+          sources: [
             {
-                "id": 1,
-                "title": "US-Iran Nuclear Talks Survive Near-Collapse After Trump Threats",
-                "category": "DIPLOMACY",
-                "tags": [
-                    "iran",
-                    "nuclear",
-                    "sanctions"
-                ],
-                "priority": "MAJOR",
-                "priorityLevel": 1,
-                "sources": [
-                    {
-                        "name": "CNN",
-                        "url": "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"
-                    },
-                    {
-                        "name": "WEF",
-                        "url": "https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/"
-                    }
-                ],
-                "eventDate": "2026-06-21",
-                "whatHappened": "A fresh round of US-Iran nuclear and sanctions talks in Qatar was nearly derailed when Iran suspended participation after President Trump made threatening statements in a media interview. Following Qatar and Pakistan mediation, Iran returned to the table. Both sides described the resumed talks as conducted in a 'positive and constructive atmosphere.' No agreement has been reached and the next round has not been scheduled.",
-                "whatItCanDo": [
-                    "A deal could unlock Iranian oil exports — potentially adding 1-1.5 million barrels per day to global supply",
-                    "Sanctions relief would allow Iran to access ~$100B in frozen assets, boosting its economy and military capacity",
-                    "Reduce Strait of Hormuz risk premium currently embedded in global oil prices",
-                    "Ease pressure on European energy markets still recovering from Middle East war disruptions"
-                ],
-                "whatsCatch": [
-                    "Trump's public threats nearly ended talks — his unpredictability is the single largest risk to any deal",
-                    "Iran's Supreme Leader Khamenei must approve any agreement, and his position remains hardline on enrichment",
-                    "Israel has stated it will take unilateral military action if it believes Iran is approaching weapons-grade enrichment",
-                    "US Congressional opposition to any Iran deal is significant — ratification risk is high"
-                ],
-                "keyTakeaway": "The talks are alive but fragile — one more Trump media statement or Israeli military action could collapse them permanently.",
-                "howToImprove": "Watch for a scheduled next round: if one is announced within 72 hours, it signals genuine momentum. If no next round is confirmed by June 25, the talks are likely suspended.",
-                "vsPrevious": "First time covering the 2026 US-Iran talks in this terminal."
-            },
-            {
-                "id": 2,
-                "title": "US-Iran Form Lebanon De-Confliction Cell — First Direct Military Coordination Since 1979",
-                "category": "CONFLICT",
-                "tags": [
-                    "lebanon",
-                    "iran",
-                    "nato"
-                ],
-                "priority": "MAJOR",
-                "priorityLevel": 1,
-                "sources": [
-                    {
-                        "name": "CNN",
-                        "url": "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"
-                    },
-                    {
-                        "name": "ZeroFox",
-                        "url": "https://www.zerofox.com/intelligence/monthly-geopolitical-report-june-2026/"
-                    }
-                ],
-                "eventDate": "2026-06-21",
-                "whatHappened": "The US and Iran agreed to establish a 'de-confliction cell' specifically for Lebanon, facilitated by Qatar and Pakistan. The cell is designed to coordinate on preventing accidental military escalation as the Israel-Hezbollah conflict continues despite a renewed ceasefire agreement. This is the first formal military communication mechanism between Washington and Tehran since the 1979 Islamic Revolution.",
-                "whatItCanDo": [
-                    "Reduce the risk of accidental military exchange between US-backed Israeli forces and Iran-backed Hezbollah",
-                    "Create a precedent for US-Iran direct communication that could extend to other flashpoints",
-                    "Give Qatar and Pakistan greater geopolitical leverage as trusted mediators in a major conflict zone",
-                    "Provide a back-channel to communicate red lines without requiring public diplomatic statements"
-                ],
-                "whatsCatch": [
-                    "A 'de-confliction cell' is not a ceasefire — active hostilities continue on the ground in Lebanon",
-                    "Hezbollah does not formally report to Tehran command — Iranian influence has limits",
-                    "Israel was not party to this agreement and may view it as undermining its freedom of action",
-                    "The mechanism could collapse if either side uses the channel to deliver ultimatums rather than coordinate"
-                ],
-                "keyTakeaway": "The US-Iran de-confliction cell is the most significant direct military coordination between the two countries in 47 years — a structural breakthrough even if tactical fighting continues.",
-                "howToImprove": "The cell needs a third-party observer (UN or Swiss) to document communications and prevent disputes about what was agreed. Track whether fighting intensity in Lebanon measurably decreases in the next 2 weeks.",
-                "vsPrevious": "First time covering Lebanon de-confliction in this terminal. Previously noted the Israel-Hezbollah conflict as ongoing background context."
-            },
-            {
-                "id": 3,
-                "title": "Strait of Hormuz Communication Line Established to Protect Oil Shipping",
-                "category": "DIPLOMACY",
-                "tags": [
-                    "iran",
-                    "energy",
-                    "shipping"
-                ],
-                "priority": "SIGNIFICANT",
-                "priorityLevel": 2,
-                "sources": [
-                    {
-                        "name": "WEF",
-                        "url": "https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/"
-                    },
-                    {
-                        "name": "CFR",
-                        "url": "https://www.cfr.org/reports/conflicts-watch-2026"
-                    }
-                ],
-                "eventDate": "2026-06-21",
-                "whatHappened": "The US and Iran established a direct naval communication line aimed at ensuring 'safe passage' through the Strait of Hormuz. The announcement follows months of disruption to global energy supplies caused by the ongoing Middle East conflict. Approximately 20% of global oil and 25% of global LNG transit the Strait daily — any closure would trigger an immediate global energy crisis.",
-                "whatItCanDo": [
-                    "Reduce the war risk premium embedded in Brent crude and global LNG prices",
-                    "Provide insurance for shipping companies currently charging elevated war risk surcharges on Hormuz routes",
-                    "Signal to global energy markets that both the US and Iran want to avoid a full Strait closure",
-                    "Lower input costs for Asian economies (China, Japan, South Korea, India) heavily dependent on Gulf oil"
-                ],
-                "whatsCatch": [
-                    "A communication line does not prevent Iranian seizure of tankers — it only provides a channel to protest",
-                    "Iran's Revolutionary Guard Corps operates semi-independently and has historically acted without Tehran's approval",
-                    "US naval presence in the Gulf is at a multi-year high, increasing the risk of miscalculation",
-                    "Insurance premiums for Hormuz passage remain elevated despite the announcement"
-                ],
-                "keyTakeaway": "The Hormuz communication line is a stabilising signal, but the Strait remains a live flashpoint as long as the broader US-Iran conflict is unresolved.",
-                "howToImprove": "Watch tanker insurance rates as a real-time signal: if war risk premiums fall more than 20% this week, the market believes the line is credible. Currently rates remain elevated.",
-                "vsPrevious": "First time covering Strait of Hormuz shipping risk in this terminal."
-            },
-            {
-                "id": 4,
-                "title": "Ukraine Escalates Attacks on Russian Fuel Infrastructure in Crimea",
-                "category": "CONFLICT",
-                "tags": [
-                    "ukraine",
-                    "russia",
-                    "energy"
-                ],
-                "priority": "NOTABLE",
-                "priorityLevel": 3,
-                "sources": [
-                    {
-                        "name": "Deutsche Bank Research",
-                        "url": "https://www.dbresearch.com/PROD/IE-PROD/PROD0000000000629523/This_Month_in_Geopolitics:_June_2026.pdf"
-                    }
-                ],
-                "eventDate": "2026-06-21",
-                "whatHappened": "Officials in Russian-occupied Crimea suspended civilian gasoline sales as Ukraine ramped up drone and missile attacks targeting fuel supply infrastructure on the peninsula. The attacks are part of Ukraine's sustained campaign to degrade Russian military logistics, particularly fuel supply chains for operations in southern Ukraine.",
-                "whatItCanDo": [
-                    "Disrupt Russian military operations in southern Ukraine by constraining fuel availability for armoured vehicles",
-                    "Force Russia to divert air defence assets to protect Crimean infrastructure, reducing cover elsewhere on the front",
-                    "Raise civilian pressure on Russian occupation administration in Crimea"
-                ],
-                "whatsCatch": [
-                    "Ukraine has been targeting Crimean fuel infrastructure since 2023 with mixed long-term results",
-                    "Russia has demonstrated capacity to repair infrastructure and reroute supplies within days",
-                    "Civilian gasoline shortages in Crimea may increase local resentment but are unlikely to trigger political change",
-                    "Escalation risk: Russia may respond with strikes on Ukrainian energy infrastructure"
-                ],
-                "keyTakeaway": "Ukraine's Crimea fuel campaign is tactically disruptive but strategically inconclusive — the front line has not materially shifted since Q1 2026.",
-                "howToImprove": "Track front-line movement in the Zaporizhzhia-Kherson corridor over the next 2 weeks as the operational indicator of whether the fuel disruption is having strategic effect.",
-                "vsPrevious": "First time covering Ukraine-Crimea operations in this terminal."
+              name: "Al Jazeera",
+              url: "https://www.aljazeera.com/news/2026/6/20/al-jazeera-cameraman-ahmad-wishah-killed-in-israeli-attack-in-gaza"
             }
-        ],
-        "quickHits": [
+          ],
+          eventDate: "2026-06-20",
+          whatHappened: "Al Jazeera cameraman Ahmed Wishah was killed in an Israeli airstrike in Gaza on June 20, 2026. Al Jazeera confirmed the death and called for accountability. The strike hit in an active operations zone. Wishah is among dozens of journalists killed in Gaza since the conflict began, making it one of the deadliest conflicts for media workers in modern history. The International Federation of Journalists and Reporters Without Borders condemned the strike.",
+          whatItCanDo: [
+            "Increase international pressure on Israel regarding civilian and media casualty rates in Gaza",
+            "Amplify Al Jazeera's editorial coverage of the conflict as the outlet documents its own losses",
+            "Provide material for UN Human Rights Council investigations into IDF operational conduct"
+          ],
+          whatsCatch: [
+            "Israel denies deliberately targeting journalists and cites the active combat environment",
+            "International condemnation has not materially altered Israeli military operations to date",
+            "The number of confirmed journalist deaths in Gaza is disputed between different tracking organisations"
+          ],
+          keyTakeaway: "Gaza remains the deadliest conflict for journalists in decades — each confirmed media casualty increases legal and diplomatic pressure on Israel that accumulates over time.",
+          howToImprove: "The UN should establish an independent mechanism for rapid investigation of journalist deaths in active conflict zones, with findings published within 30 days of each incident.",
+          vsPrevious: "First time covering journalist casualties in Gaza in this terminal."
+        },
+        {
+          id: 3,
+          title: "Strait of Hormuz Naval Communication Line Established Between US and Iran",
+          category: "DIPLOMACY",
+          tags: [
+            "sanctions",
+            "un"
+          ],
+          priority: "SIGNIFICANT",
+          priorityLevel: 2,
+          sources: [
             {
-                "title": "FIFA World Cup surprises continue",
-                "text": "2026 World Cup sees upsets from debut nations. Morocco and Japan both through to quarterfinals. USA faces Brazil in Round of 16.",
-                "url": "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"
+              name: "WEF — Geopolitical Stories to Know",
+              url: "https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/"
             },
             {
-                "title": "WEF Global Risks 2026 report flags geopolitical and AI risk",
-                "text": "Annual report highlights AI-enabled disinformation and geopolitical fragmentation as top systemic risks for 2026.",
-                "url": "https://www.weforum.org/press/2026/01/global-risks-report-2026-geopolitical-and-economic-risks-rise-in-new-age-of-competition/"
-            },
-            {
-                "title": "Qatar-Pakistan emerge as key Middle East mediators",
-                "text": "Both nations now central to US-Iran communications and Lebanon de-confliction. Significant diplomatic capital gain for both.",
-                "url": "https://www.weforum.org/stories/2026/06/uncertainty-around-us-iran-ceasefire-and-other-geopolitical-stories-to-know-this-month/"
+              name: "CFR — Conflicts to Watch 2026",
+              url: "https://www.cfr.org/reports/conflicts-watch-2026"
             }
-        ]
+          ],
+          eventDate: "2026-06-21",
+          whatHappened: "The US and Iran established a direct naval communication line to ensure safe passage through the Strait of Hormuz. The agreement followed months of disruption to global energy supplies during the Middle East conflict. Approximately 20% of global oil and 25% of global LNG transit the Strait daily. Oil prices fell 3% on the announcement as the market reduced the war risk premium on Hormuz passage.",
+          whatItCanDo: [
+            "Reduce war risk insurance premiums for shipping companies operating on Hormuz routes",
+            "Signal to energy markets that both sides want to avoid a full Strait closure",
+            "Lower input costs for China, Japan, South Korea, and India — all heavily dependent on Gulf energy"
+          ],
+          whatsCatch: [
+            "A communication line does not prevent Iran's Revolutionary Guard from seizing tankers — IRGC operates semi-independently",
+            "US naval presence in the Gulf is at a multi-year high, raising miscalculation risk despite the line",
+            "Insurance premiums remain elevated — markets are cautiously optimistic, not fully convinced"
+          ],
+          keyTakeaway: "The Hormuz communication line reduces the probability of accidental escalation — the most dangerous near-term risk — without resolving the underlying conflict.",
+          howToImprove: "Lloyd's of London war risk premiums are the real-time signal to watch: a drop above 20% this week would confirm market credibility of the communication line.",
+          vsPrevious: "First time covering Strait of Hormuz risk in this terminal."
+        },
+        {
+          id: 4,
+          title: "Alan Greenspan, Former Federal Reserve Chair, Dies at 100",
+          category: "POLITICS",
+          tags: [
+            "g7"
+          ],
+          priority: "NOTABLE",
+          priorityLevel: 3,
+          sources: [
+            {
+              name: "NBC News",
+              url: "https://www.nbcnews.com/news/obituaries/alan-greenspan-economist-longtime-head-federal-reserve-dies-100-rcna42286"
+            }
+          ],
+          eventDate: "2026-06-22",
+          whatHappened: "Alan Greenspan, who served as Chairman of the Federal Reserve from 1987 to 2006 — spanning the Reagan, Bush Sr., Clinton, and Bush Jr. administrations — died at the age of 100. Greenspan oversaw the 1987 Black Monday response, the dot-com boom, the September 11 aftermath, and the conditions that contributed to the 2008 global financial crisis. His legacy remains contested: celebrated for the 'Great Moderation' of the 1990s-2000s, criticised for his faith in self-regulating markets and the subprime mortgage crisis.",
+          whatItCanDo: [
+            "Prompt renewed debate about the role of central bank independence, which Greenspan championed",
+            "Draw comparisons to current Fed Chair Warsh's approach at a time of renewed monetary policy uncertainty"
+          ],
+          whatsCatch: [
+            "Greenspan's reputation was significantly damaged by his admission that he had found a 'flaw' in his free-market ideology after the 2008 crisis",
+            "His tenure is studied as a cautionary tale about regulatory complacency as much as a success story"
+          ],
+          keyTakeaway: "Greenspan's death closes a chapter in central banking history — and his 2008 admission of ideological error remains the most consequential self-critique by any central bank chair.",
+          howToImprove: "The Federal Reserve should commission a public retrospective on the Greenspan era's policy lessons — not as hagiography, but as institutional learning.",
+          vsPrevious: "First time covering this topic in this terminal."
+        }
+      ],
+      quickHits: [
+        {
+          title: "FIFA World Cup — Morocco, Japan in quarterfinals",
+          text: "2026 World Cup continues with upsets. Morocco and Japan both through. USA faces Brazil in Round of 16.",
+          url: "https://www.cnn.com/2026/06/21/world/live-news/iran-war-trump-israel-lebanon"
+        },
+        {
+          title: "Ukraine attacks Crimea fuel infrastructure",
+          text: "Russian-occupied Crimea suspended civilian gasoline sales as Ukraine ramped up drone strikes on fuel supply depots.",
+          url: "https://www.dbresearch.com/PROD/IE-PROD/PROD0000000000629523/This_Month_in_Geopolitics:_June_2026.pdf"
+        },
+        {
+          title: "DC Reflecting Pool vandalism — former Olympian charged",
+          text: "Multiple arrests including a former Olympian after vandalism at the Lincoln Memorial Reflecting Pool. Trump ordered immediate repairs.",
+          url: "https://www.foxnews.com/politics/former-olympian-among-charged-vandalizing-reflecting-pool-trump-vows-immediate-repairs-report"
+        }
+      ]
     }
   ]
 };

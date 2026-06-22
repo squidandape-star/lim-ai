@@ -10,4 +10,10 @@ The Federal Reserve kept rates at 3.50-3.75% but Chair Kevin Warsh signalled pos
 
 ---
 
+## 2026-06-22 — Fed holds but turns hawkish; global growth hits 5-year low at 2.5%
+The Federal Reserve held rates at 3.50-3.75% but Chair Kevin Warsh's first press conference leaned hawkish, lifting 2-year Treasury yields to a 12-month high. The World Bank cut 2026 global growth to 2.5% — lowest since COVID. Bank of England and Swiss National Bank both held. Nasdaq recovered +2.43% by week's end.
+[Full brief →](2026-06-22.md)
+
+---
+
 *Index starts here*

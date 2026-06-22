@@ -10,4 +10,10 @@ Hundreds of students rallied in Jakarta demanding lower fuel and food prices and
 
 ---
 
+## 2026-06-22 — Three protest groups hit Jakarta; PMII demands full cabinet evaluation under Prabowo
+Three separate protest groups gathered in Jakarta on June 22 — PMII demanding Merah Putih Cabinet evaluation, Jakarta Community Alliance supporting free meals, and KNARA demanding a National Agrarian Reform Body. Indonesia projects 3.88 million green jobs in 2026. PT Pupuk Indonesia began exporting urea to Australia. Indonesian police seized Rp97.8B worth of etomidate at Soekarno-Hatta.
+[Full brief →](2026-06-22.md)
+
+---
+
 *Index starts here*

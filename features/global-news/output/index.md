@@ -10,4 +10,10 @@ Iran initially refused to continue nuclear talks after Trump's public threats bu
 
 ---
 
+## 2026-06-22 — US-Iran talks survive collapse scare; Al Jazeera cameraman killed in Gaza
+Iran suspended US nuclear talks after Trump threats then returned following Qatar-Pakistan mediation. A joint US-Iran de-confliction cell for Lebanon was established — first military coordination since 1979. A Strait of Hormuz communication line was created. In Gaza, Al Jazeera cameraman Ahmed Wishah was killed in an Israeli strike. Alan Greenspan died aged 100.
+[Full brief →](2026-06-22.md)
+
+---
+
 *Index starts here*
