@@ -6,12 +6,12 @@
   <title>LIM-AI TERMINAL</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script>(function(){var t=localStorage.getItem('lim-ai-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
   <style>
-    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     /* ══════════════════════════════════════
-       DARK MODE  (default)
+       DARK MODE
     ══════════════════════════════════════ */
     :root, [data-theme="dark"] {
       --bg:        #000000;
@@ -37,12 +37,14 @@
       --text2:     #AAAAAA;
       --dim:       #555555;
 
-      --topbar-bg: #0d0d0d;
-      --topbar-bd: #FF6600;
+      --topbar-bg:  #0d0d0d;
       --sidebar-bg: #0d0d0d;
-      --card-bg:   #0d0d0d;
+      --card-bg:    #0d0d0d;
       --card-hover: #141414;
-      --signal-bd: #FF6600;
+
+      /* accent — overridden per-category */
+      --accent:    #FF6600;
+      --accent2:   #FF8800;
     }
 
     /* ══════════════════════════════════════
@@ -72,20 +74,23 @@
       --text2:     #444444;
       --dim:       #888888;
 
-      --topbar-bg: #F5F5F5;
-      --topbar-bd: #CC4400;
+      --topbar-bg:  #F5F5F5;
       --sidebar-bg: #F5F5F5;
-      --card-bg:   #FFFFFF;
+      --card-bg:    #FFFFFF;
       --card-hover: #F5F5F5;
-      --signal-bd: #CC4400;
+
+      --accent:    #CC4400;
+      --accent2:   #AA3300;
     }
 
-    /* ── Base ── */
     :root {
-      --font:    'IBM Plex Mono', 'Courier New', monospace;
-      --sidebar: 230px;
-      --topbar:  44px;
+      --font:     'IBM Plex Mono', 'Courier New', monospace;
+      --sidebar:  230px;
+      --topbar:   44px;
+      --catbar:   36px;
+      --topoffset: 80px; /* topbar + catbar */
     }
+
     html, body {
       height: 100%;
       background: var(--bg);
@@ -97,31 +102,65 @@
       transition: background 0.2s, color 0.2s;
     }
 
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg2); }
     ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
-    /* ── Top Bar ── */
+    /* ══════════════════════════════════════
+       ALOHA SPLASH
+    ══════════════════════════════════════ */
+    #aloha {
+      position: fixed; inset: 0;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 500;
+      transition: opacity 0.6s ease;
+    }
+    #aloha.fade-out { opacity: 0; pointer-events: none; }
+    .aloha-text {
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      animation: pulse-in 0.5s ease;
+    }
+    .aloha-sub {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--dim);
+      margin-top: 12px;
+      font-weight: 600;
+    }
+    @keyframes pulse-in {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ══════════════════════════════════════
+       TOP BAR
+    ══════════════════════════════════════ */
     #topbar {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--topbar);
       background: var(--topbar-bg);
-      border-bottom: 1px solid var(--topbar-bd);
+      border-bottom: 2px solid var(--accent);
       display: flex;
       align-items: center;
       padding: 0 14px;
       gap: 12px;
       z-index: 100;
       user-select: none;
+      transition: border-color 0.3s;
     }
     .tb-brand {
-      color: var(--orange);
+      color: var(--accent);
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 0.12em;
       white-space: nowrap;
+      transition: color 0.3s;
     }
     .tb-brand span { color: var(--text); }
     .tb-divider { width: 1px; height: 22px; background: var(--border2); flex-shrink: 0; }
@@ -140,36 +179,67 @@
       font-size: 11px; color: var(--text2); white-space: nowrap;
     }
     .tb-stats .s-major { color: var(--red); font-weight: 600; }
-    .tb-stats .s-sig   { color: var(--orange); font-weight: 600; }
-    .tb-clock {
-      margin-left: auto; font-size: 12px; color: var(--text2); white-space: nowrap;
-    }
-    .tb-date { color: var(--orange2); font-weight: 600; }
-
-    /* Theme toggle */
+    .tb-stats .s-sig   { color: var(--accent); font-weight: 600; }
+    .tb-clock { font-size: 12px; color: var(--text2); white-space: nowrap; }
+    .tb-date  { color: var(--accent2); font-weight: 600; transition: color 0.3s; }
+    .tb-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
     #theme-toggle {
       background: none; border: 1px solid var(--border2);
       border-radius: 3px; cursor: pointer; padding: 4px 8px;
       font-family: var(--font); font-size: 11px; font-weight: 600;
-      color: var(--text2); letter-spacing: 0.05em;
-      transition: all 0.15s; flex-shrink: 0;
+      color: var(--text2); letter-spacing: 0.05em; transition: all 0.15s; flex-shrink: 0;
     }
-    #theme-toggle:hover { border-color: var(--orange); color: var(--orange); }
-
-    /* Hamburger */
+    #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
     #hamburger {
       display: none; background: none; border: none; cursor: pointer;
-      color: var(--orange); font-size: 18px; padding: 4px; flex-shrink: 0;
+      color: var(--accent); font-size: 18px; padding: 4px; flex-shrink: 0;
     }
 
-    /* ── Layout ── */
+    /* ══════════════════════════════════════
+       CATEGORY BAR
+    ══════════════════════════════════════ */
+    #catbar {
+      position: fixed;
+      top: var(--topbar); left: 0; right: 0;
+      height: var(--catbar);
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: stretch;
+      z-index: 99;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    #catbar::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      flex-shrink: 0;
+      padding: 0 14px;
+      display: flex; align-items: center;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--dim); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      border-right: 1px solid var(--border);
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .cat-tab:hover { color: var(--text2); background: var(--bg3); }
+    .cat-tab.active {
+      color: var(--bg) !important;
+      border-bottom-color: transparent !important;
+    }
+
+    /* ══════════════════════════════════════
+       LAYOUT
+    ══════════════════════════════════════ */
     #layout {
       display: flex;
       position: fixed;
-      top: var(--topbar); left: 0; right: 0; bottom: 0;
+      top: var(--topoffset); left: 0; right: 0; bottom: 0;
     }
 
-    /* ── Sidebar ── */
+    /* ══════════════════════════════════════
+       SIDEBAR
+    ══════════════════════════════════════ */
     #sidebar {
       width: var(--sidebar);
       flex-shrink: 0;
@@ -192,30 +262,25 @@
       transition: all 0.15s;
     }
     .date-item:hover { background: var(--bg3); }
-    .date-item.active { border-left-color: var(--orange); background: var(--bg3); }
+    .date-item.active { border-left-color: var(--accent); background: var(--bg3); }
     .di-date {
-      font-size: 11px; font-weight: 600; color: var(--orange2); letter-spacing: 0.05em;
+      font-size: 11px; font-weight: 600; color: var(--accent2); letter-spacing: 0.05em;
+      transition: color 0.3s;
     }
-    .date-item.active .di-date { color: var(--orange); }
+    .date-item.active .di-date { color: var(--accent); }
     .di-headline {
       font-size: 10px; color: var(--text2); line-height: 1.4; margin-top: 2px;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .di-badges { display: flex; gap: 4px; margin-top: 5px; }
-    .di-badge {
-      font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px;
-    }
+    .di-badge { font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; }
     [data-theme="dark"] .di-badge.major { background: rgba(255,23,68,0.18); color: var(--red2); }
-    [data-theme="dark"] .di-badge.sig   { background: rgba(255,102,0,0.18); color: var(--orange); }
+    [data-theme="dark"] .di-badge.sig   { background: rgba(255,102,0,0.18); color: var(--accent); }
     [data-theme="light"] .di-badge.major { background: rgba(204,0,34,0.1); color: var(--red2); border: 1px solid rgba(204,0,34,0.2); }
-    [data-theme="light"] .di-badge.sig   { background: rgba(204,68,0,0.1); color: var(--orange); border: 1px solid rgba(204,68,0,0.2); }
+    [data-theme="light"] .di-badge.sig   { background: rgba(204,68,0,0.1); color: var(--accent); border: 1px solid rgba(204,68,0,0.2); }
 
-    /* Filters */
     .sidebar-filters { border-top: 1px solid var(--border); padding: 8px; }
-    .filter-hdr {
-      font-size: 10px; font-weight: 700; color: var(--dim);
-      letter-spacing: 0.12em; margin-bottom: 6px;
-    }
+    .filter-hdr { font-size: 10px; font-weight: 700; color: var(--dim); letter-spacing: 0.12em; margin-bottom: 6px; }
     .filter-chips { display: flex; flex-wrap: wrap; gap: 4px; }
     .chip {
       font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
@@ -226,18 +291,13 @@
     .chip:hover { border-color: var(--text2); color: var(--text); }
     .chip.active { color: var(--bg) !important; }
 
-    /* ── Main ── */
-    #main {
-      flex: 1; overflow-y: auto; overflow-x: hidden;
-      padding: 18px 20px 40px;
-    }
+    /* ══════════════════════════════════════
+       MAIN
+    ══════════════════════════════════════ */
+    #main { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 18px 20px 40px; }
 
-    /* Brief Header */
     #brief-hdr { border-bottom: 1px solid var(--border2); padding-bottom: 12px; margin-bottom: 16px; }
-    .bh-date {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      color: var(--orange); margin-bottom: 4px;
-    }
+    .bh-date { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 4px; transition: color 0.3s; }
     .bh-headline { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
     .bh-summary { font-size: 11px; color: var(--text2); margin-top: 6px; line-height: 1.6; }
     .bh-stats { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
@@ -245,32 +305,30 @@
     .bh-stat .num { font-weight: 700; font-size: 13px; }
     .bh-stat.total .num { color: var(--text); }
     .bh-stat.major .num { color: var(--red); }
-    .bh-stat.sig   .num { color: var(--orange); }
+    .bh-stat.sig   .num { color: var(--accent); }
 
-    /* Signal Box */
     #signal-box {
       background: var(--bg2); border: 1px solid var(--border2);
-      border-left: 3px solid var(--signal-bd);
+      border-left: 3px solid var(--accent);
       border-radius: 2px; padding: 12px 14px; margin-bottom: 20px;
+      transition: border-left-color 0.3s;
     }
-    .signal-hdr {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
-      color: var(--orange); margin-bottom: 10px;
-    }
-    .signal-item {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 6px 0; border-bottom: 1px solid var(--border);
-    }
+    .signal-hdr { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; transition: color 0.3s; }
+    .signal-item { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid var(--border); }
     .signal-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .signal-bullet { font-size: 14px; color: var(--orange); flex-shrink: 0; line-height: 1.2; }
+    .signal-bullet { font-size: 14px; color: var(--accent); flex-shrink: 0; line-height: 1.2; transition: color 0.3s; }
     .signal-headline { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
     .signal-detail { font-size: 11px; color: var(--text2); margin-top: 2px; line-height: 1.5; }
 
-    /* Story Cards */
-    .stories-hdr {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
-      color: var(--dim); margin-bottom: 12px;
+    /* Empty / no-data state */
+    #no-data {
+      display: none; padding: 60px 20px; text-align: center;
+      color: var(--dim); font-size: 12px; line-height: 2.2;
     }
+    .no-data-label { font-size: 32px; color: var(--accent); font-weight: 700; margin-bottom: 14px; transition: color 0.3s; }
+
+    /* Story Cards */
+    .stories-hdr { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--dim); margin-bottom: 12px; }
     .story-card {
       background: var(--card-bg); border: 1px solid var(--border);
       border-radius: 2px; margin-bottom: 10px; overflow: hidden;
@@ -278,156 +336,83 @@
     }
     .story-card:hover { background: var(--card-hover); }
     .story-card.filtered-out { display: none; }
-
-    .story-head {
-      padding: 12px 14px; cursor: pointer;
-      display: flex; flex-direction: column; gap: 7px;
-    }
+    .story-head { padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 7px; }
     .story-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-    .cat-badge {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
-      padding: 2px 7px; border-radius: 2px;
-    }
+    .cat-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; padding: 2px 7px; border-radius: 2px; }
 
-    /* Dark badge styles */
-    [data-theme="dark"] .cat-POLICY   { background: rgba(204,68,255,0.15); color: var(--purple); border: 1px solid rgba(204,68,255,0.3); }
-    [data-theme="dark"] .cat-PEOPLE   { background: rgba(0,229,255,0.12); color: var(--cyan); border: 1px solid rgba(0,229,255,0.25); }
-    [data-theme="dark"] .cat-SAFETY   { background: rgba(255,23,68,0.15); color: var(--red2); border: 1px solid rgba(255,23,68,0.3); }
-    [data-theme="dark"] .cat-BUSINESS { background: rgba(0,255,136,0.12); color: var(--green); border: 1px solid rgba(0,255,136,0.25); }
-    [data-theme="dark"] .cat-PRODUCT  { background: rgba(68,136,255,0.15); color: var(--blue); border: 1px solid rgba(68,136,255,0.3); }
-    [data-theme="dark"] .cat-MODEL    { background: rgba(255,102,0,0.15); color: var(--orange); border: 1px solid rgba(255,102,0,0.3); }
-    [data-theme="dark"] .cat-TOOL     { background: rgba(0,255,204,0.12); color: var(--teal); border: 1px solid rgba(0,255,204,0.25); }
-    [data-theme="dark"] .cat-RESEARCH { background: rgba(204,68,255,0.12); color: var(--purple); border: 1px solid rgba(204,68,255,0.25); }
+    /* Badge colours (dark) */
+    [data-theme="dark"] .cat-badge { background: rgba(255,255,255,0.07); color: var(--text2); border: 1px solid var(--border2); }
+    /* Badge colours (light) */
+    [data-theme="light"] .cat-badge { background: rgba(0,0,0,0.05); color: var(--text2); border: 1px solid var(--border2); }
 
-    /* Light badge styles */
-    [data-theme="light"] .cat-POLICY   { background: rgba(102,0,170,0.08); color: var(--purple); border: 1px solid rgba(102,0,170,0.2); }
-    [data-theme="light"] .cat-PEOPLE   { background: rgba(0,102,170,0.08); color: var(--cyan); border: 1px solid rgba(0,102,170,0.2); }
-    [data-theme="light"] .cat-SAFETY   { background: rgba(204,0,34,0.08); color: var(--red); border: 1px solid rgba(204,0,34,0.2); }
-    [data-theme="light"] .cat-BUSINESS { background: rgba(0,102,51,0.08); color: var(--green); border: 1px solid rgba(0,102,51,0.2); }
-    [data-theme="light"] .cat-PRODUCT  { background: rgba(0,68,204,0.08); color: var(--blue); border: 1px solid rgba(0,68,204,0.2); }
-    [data-theme="light"] .cat-MODEL    { background: rgba(204,68,0,0.08); color: var(--orange); border: 1px solid rgba(204,68,0,0.2); }
-    [data-theme="light"] .cat-TOOL     { background: rgba(0,102,85,0.08); color: var(--teal); border: 1px solid rgba(0,102,85,0.2); }
-    [data-theme="light"] .cat-RESEARCH { background: rgba(102,0,170,0.08); color: var(--purple); border: 1px solid rgba(102,0,170,0.2); }
+    /* Per-category badge accent (applied via JS inline style on badge) */
 
     .priority-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .p1 { background: var(--red);    box-shadow: 0 0 6px color-mix(in srgb, var(--red) 50%, transparent); }
-    .p2 { background: var(--orange); box-shadow: 0 0 6px color-mix(in srgb, var(--orange) 40%, transparent); }
+    .p1 { background: var(--red);   box-shadow: 0 0 6px color-mix(in srgb, var(--red) 50%, transparent); }
+    .p2 { background: var(--accent); box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 40%, transparent); transition: background 0.3s; }
     .p3 { background: var(--amber); }
     .p4 { background: var(--dim); }
-
     .priority-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; }
     .p1-txt { color: var(--red); }
-    .p2-txt { color: var(--orange); }
+    .p2-txt { color: var(--accent); transition: color 0.3s; }
     .p3-txt { color: var(--amber); }
-
-    .tag-pill {
-      font-size: 9px; color: var(--dim); letter-spacing: 0.05em;
-      border: 1px solid var(--border); padding: 1px 5px; border-radius: 2px;
-    }
+    .tag-pill { font-size: 9px; color: var(--dim); letter-spacing: 0.05em; border: 1px solid var(--border); padding: 1px 5px; border-radius: 2px; }
     .story-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
     .story-subtitle { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .story-event-date { font-size: 10px; color: var(--dim); }
     .story-sources { display: flex; gap: 6px; flex-wrap: wrap; }
-    .story-src-link {
-      font-size: 10px; color: var(--blue); text-decoration: none; transition: color 0.15s;
-    }
+    .story-src-link { font-size: 10px; color: var(--blue); text-decoration: none; transition: color 0.15s; }
     .story-src-link:hover { color: var(--cyan); text-decoration: underline; }
-    .expand-arrow {
-      font-size: 10px; color: var(--dim); margin-left: auto; flex-shrink: 0;
-      transition: transform 0.2s;
-    }
+    .expand-arrow { font-size: 10px; color: var(--dim); margin-left: auto; flex-shrink: 0; transition: transform 0.2s; }
     .story-card.open .expand-arrow { transform: rotate(180deg); }
 
-    /* Story Body */
     .story-body { display: none; border-top: 1px solid var(--border); }
     .story-card.open .story-body { display: block; }
     .story-section { padding: 11px 14px; border-bottom: 1px solid var(--border); }
     .story-section:last-child { border-bottom: none; }
-    .ss-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.15em; color: var(--dim);
-      margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
-    }
+    .ss-label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; color: var(--dim); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
     .ss-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .ss-text { font-size: 11px; color: var(--text2); line-height: 1.7; }
     .ss-list { list-style: none; padding: 0; }
-    .ss-list li {
-      font-size: 11px; color: var(--text2); line-height: 1.6;
-      padding-left: 14px; position: relative; margin-bottom: 3px;
-    }
+    .ss-list li { font-size: 11px; color: var(--text2); line-height: 1.6; padding-left: 14px; position: relative; margin-bottom: 3px; }
     .ss-list li::before { position: absolute; left: 0; font-size: 9px; top: 3px; }
     .ss-catch li::before { content: '✗'; color: var(--red); }
     .ss-cando li::before { content: '✓'; color: var(--green); }
-    .takeaway-box {
-      background: var(--bg3); border-left: 3px solid var(--orange);
-      padding: 9px 12px; border-radius: 0 2px 2px 0; margin-top: 4px;
-    }
+    .takeaway-box { background: var(--bg3); border-left: 3px solid var(--accent); padding: 9px 12px; border-radius: 0 2px 2px 0; margin-top: 4px; transition: border-left-color 0.3s; }
     .takeaway-box .ss-text { color: var(--text); font-style: italic; font-size: 12px; }
-    .vs-box {
-      font-size: 11px; color: var(--dim); background: var(--bg3);
-      padding: 6px 10px; border-radius: 2px; border: 1px solid var(--border); font-style: italic;
-    }
+    .vs-box { font-size: 11px; color: var(--dim); background: var(--bg3); padding: 6px 10px; border-radius: 2px; border: 1px solid var(--border); font-style: italic; }
 
-    /* Quick Hits */
     #quick-hits { margin-top: 24px; }
-    .qh-hdr {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--dim);
-      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
-    }
+    .qh-hdr { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--dim); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
     .qh-hdr::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .qh-list { display: flex; flex-direction: column; gap: 6px; }
-    .qh-item {
-      background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 2px; padding: 9px 12px;
-      display: flex; align-items: flex-start; gap: 10px;
-    }
-    .qh-bullet { color: var(--orange); flex-shrink: 0; font-size: 10px; margin-top: 2px; }
+    .qh-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 2px; padding: 9px 12px; display: flex; align-items: flex-start; gap: 10px; }
+    .qh-bullet { color: var(--accent); flex-shrink: 0; font-size: 10px; margin-top: 2px; transition: color 0.3s; }
     .qh-title { font-size: 11px; font-weight: 700; color: var(--text); }
     .qh-text  { font-size: 11px; color: var(--text2); margin-top: 1px; line-height: 1.5; }
-    .qh-link  {
-      font-size: 10px; color: var(--blue); text-decoration: none;
-      margin-top: 2px; display: inline-block;
-    }
+    .qh-link  { font-size: 10px; color: var(--blue); text-decoration: none; margin-top: 2px; display: inline-block; }
     .qh-link:hover { color: var(--cyan); text-decoration: underline; }
 
-    /* Empty state */
-    #empty-state {
-      display: none; padding: 40px 20px; text-align: center;
-      color: var(--dim); font-size: 12px; line-height: 2;
-    }
+    #empty-state { display: none; padding: 40px 20px; text-align: center; color: var(--dim); font-size: 12px; line-height: 2; }
 
     /* Mobile date bar */
-    #mobile-datebar {
-      display: none; overflow-x: auto; padding: 8px 12px; gap: 6px;
-      border-bottom: 1px solid var(--border); background: var(--bg2);
-      -webkit-overflow-scrolling: touch; scrollbar-width: none;
-      margin: -18px -12px 14px;
-    }
+    #mobile-datebar { display: none; overflow-x: auto; padding: 8px 12px; gap: 6px; border-bottom: 1px solid var(--border); background: var(--bg2); -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: -18px -12px 14px; }
     #mobile-datebar::-webkit-scrollbar { display: none; }
-    .mob-date-chip {
-      flex-shrink: 0; padding: 5px 10px; border-radius: 2px; cursor: pointer;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
-      border: 1px solid var(--border2); color: var(--text2);
-      background: var(--bg3); white-space: nowrap; transition: all 0.15s;
-    }
-    .mob-date-chip.active { background: var(--orange); color: var(--bg); border-color: var(--orange); }
+    .mob-date-chip { flex-shrink: 0; padding: 5px 10px; border-radius: 2px; cursor: pointer; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; border: 1px solid var(--border2); color: var(--text2); background: var(--bg3); white-space: nowrap; transition: all 0.15s; }
+    .mob-date-chip.active { color: var(--bg); border-color: var(--accent); }
 
-    /* Sidebar overlay (mobile) */
-    #sidebar-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.6); z-index: 90;
-    }
+    /* Sidebar overlay */
+    #sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 90; }
 
-    /* ── Responsive ── */
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
     @media (max-width: 700px) {
+      :root { --topoffset: 80px; }
       html, body { font-size: 12px; overflow: auto; }
       #layout { position: static; flex-direction: column; height: auto; overflow: visible; }
       #main { overflow: visible; padding: 12px 12px 40px; }
-      #sidebar {
-        position: fixed;
-        top: var(--topbar); left: 0; bottom: 0;
-        z-index: 95; width: 260px;
-        transform: translateX(-100%);
-      }
+      #sidebar { position: fixed; top: var(--topoffset); left: 0; bottom: 0; z-index: 95; width: 260px; transform: translateX(-100%); }
       #sidebar.open { transform: translateX(0); }
       #sidebar-overlay.open { display: block; }
       #mobile-datebar { display: flex; }
@@ -435,21 +420,43 @@
       .tb-stats { display: none; }
       .bh-headline { font-size: 13px; }
       .story-title { font-size: 12px; }
+      .cat-tab { padding: 0 10px; font-size: 9px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ══════════════════════════════════════
+     ALOHA SPLASH
+══════════════════════════════════════ -->
+<div id="aloha">
+  <div class="aloha-text">ALOHA!</div>
+  <div class="aloha-sub">LIM-AI TERMINAL</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════ -->
 <header id="topbar">
   <button id="hamburger" onclick="toggleSidebar()">☰</button>
   <div class="tb-brand">LIM<span>-</span>AI <span style="opacity:0.4">TERMINAL</span></div>
   <div class="tb-divider"></div>
   <div class="tb-live"><div class="tb-live-dot"></div>LIVE</div>
   <div class="tb-stats" id="tb-stats"></div>
-  <div class="tb-clock" id="tb-clock"></div>
-  <button id="theme-toggle" onclick="toggleTheme()">☀ LIGHT</button>
+  <div class="tb-right">
+    <div class="tb-clock" id="tb-clock"></div>
+    <button id="theme-toggle" onclick="toggleTheme()">☀ LIGHT</button>
+  </div>
 </header>
 
+<!-- ══════════════════════════════════════
+     CATEGORY BAR
+══════════════════════════════════════ -->
+<div id="catbar"></div>
+
+<!-- ══════════════════════════════════════
+     TERMINAL LAYOUT
+══════════════════════════════════════ -->
 <div id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <div id="layout">
@@ -464,6 +471,11 @@
 
   <main id="main">
     <div id="mobile-datebar"></div>
+    <div id="no-data">
+      <div class="no-data-label">COMING SOON</div>
+      First brief generates at 9:00 AM UTC+7.<br>
+      Check back tomorrow.
+    </div>
     <div id="brief-hdr"></div>
     <div id="signal-box"></div>
     <div id="stories-wrap"></div>
@@ -472,42 +484,61 @@
   </main>
 </div>
 
-<script src="data.js"></script>
-<script>
-// ── State ──
-let currentDate = null;
-let activeFilter = null;
+<!-- Data files — one per category -->
+<script src="data-ai-news.js"></script>
+<script src="data-global-fin-news.js"></script>
+<script src="data-global-news.js"></script>
+<script src="data-indo-fin-news.js"></script>
+<script src="data-indo-news.js"></script>
+<script src="data-crypto-news.js"></script>
+<script src="data-blockchain-news.js"></script>
 
-const CAT_CONFIG = {
-  POLICY:   { color: '#CC44FF' },
-  PEOPLE:   { color: '#00E5FF' },
-  SAFETY:   { color: '#FF5252' },
-  BUSINESS: { color: '#00FF88' },
-  PRODUCT:  { color: '#4488FF' },
-  MODEL:    { color: '#FF6600' },
-  TOOL:     { color: '#00FFCC' },
-  RESEARCH: { color: '#CC44FF' },
-};
-const CAT_CONFIG_LIGHT = {
-  POLICY:   { color: '#6600AA' },
-  PEOPLE:   { color: '#0066AA' },
-  SAFETY:   { color: '#CC0022' },
-  BUSINESS: { color: '#006633' },
-  PRODUCT:  { color: '#0044CC' },
-  MODEL:    { color: '#CC4400' },
-  TOOL:     { color: '#006655' },
-  RESEARCH: { color: '#6600AA' },
-};
+<script>
+// ══════════════════════════════════════════════════════════════
+//  CATEGORY CONFIG
+// ══════════════════════════════════════════════════════════════
+const CATEGORIES = [
+  { id: 'ai-news',          label: 'AI NEWS',       accentD: '#FF6600', accentL: '#CC4400' },
+  { id: 'global-fin-news',  label: 'GLOBAL FIN',    accentD: '#00FF88', accentL: '#006633' },
+  { id: 'global-news',      label: 'GLOBAL NEWS',   accentD: '#00E5FF', accentL: '#0066AA' },
+  { id: 'indo-fin-news',    label: 'INDO FIN',      accentD: '#FF1744', accentL: '#CC0022' },
+  { id: 'indo-news',        label: 'INDO NEWS',     accentD: '#FFB300', accentL: '#886600' },
+  { id: 'crypto-news',      label: 'CRYPTO',        accentD: '#CC44FF', accentL: '#6600AA' },
+  { id: 'blockchain-news',  label: 'BLOCKCHAIN',    accentD: '#00FFCC', accentL: '#006655' },
+];
+
+// ── State ──
+let currentCat    = localStorage.getItem('lim-ai-cat') || 'ai-news';
+let currentDate   = null;
+let activeFilter  = null;
 
 const PRIORITY_LABEL = { 1: 'MAJOR', 2: 'SIGNIFICANT', 3: 'NOTABLE', 4: 'FYI' };
 
-// ── Theme ──
+// ══════════════════════════════════════════════════════════════
+//  ACCENT
+// ══════════════════════════════════════════════════════════════
+function getAccent(catId) {
+  const cat = CATEGORIES.find(c => c.id === catId) || CATEGORIES[0];
+  return getTheme() === 'light' ? cat.accentL : cat.accentD;
+}
+
+function applyAccent(catId) {
+  const color = getAccent(catId);
+  const root = document.documentElement;
+  root.style.setProperty('--accent',  color);
+  root.style.setProperty('--accent2', color);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  THEME
+// ══════════════════════════════════════════════════════════════
 function getTheme() { return document.documentElement.getAttribute('data-theme') || 'dark'; }
 function toggleTheme() {
   const next = getTheme() === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀ LIGHT' : '☾ DARK';
   localStorage.setItem('lim-ai-theme', next);
+  applyAccent(currentCat);
   updateFilterChipColors();
 }
 function initTheme() {
@@ -516,37 +547,88 @@ function initTheme() {
   document.getElementById('theme-toggle').textContent = saved === 'dark' ? '☀ LIGHT' : '☾ DARK';
 }
 
-// ── Clock ──
+// ══════════════════════════════════════════════════════════════
+//  CLOCK
+// ══════════════════════════════════════════════════════════════
 function updateClock() {
   const now = new Date();
   const d = now.toISOString().slice(0, 10);
   const t = now.toTimeString().slice(0, 8);
-  document.getElementById('tb-clock').innerHTML = `<span class="tb-date">${d}</span> &nbsp;${t}`;
+  const el = document.getElementById('tb-clock');
+  if (el) el.innerHTML = `<span class="tb-date">${d}</span> &nbsp;${t}`;
 }
 updateClock();
 setInterval(updateClock, 1000);
 
-// ── Mobile sidebar ──
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sidebar-overlay').classList.toggle('open');
-}
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('sidebar-overlay').classList.remove('open');
+// ══════════════════════════════════════════════════════════════
+//  CATEGORY BAR
+// ══════════════════════════════════════════════════════════════
+function buildCatBar() {
+  const bar = document.getElementById('catbar');
+  bar.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const tab = document.createElement('div');
+    tab.className = 'cat-tab' + (cat.id === currentCat ? ' active' : '');
+    tab.dataset.id = cat.id;
+    tab.textContent = cat.label;
+    if (cat.id === currentCat) {
+      tab.style.background = getAccent(cat.id);
+      tab.style.borderBottomColor = 'transparent';
+    }
+    tab.onclick = () => switchCategory(cat.id);
+    bar.appendChild(tab);
+  });
 }
 
-// ── Init ──
-function init() {
-  initTheme();
-  const briefs = AI_NEWS_DATA.briefs.slice().reverse();
-  renderSidebar(briefs);
-  renderMobileDateBar(briefs);
-  renderFilterChips();
-  loadBrief(AI_NEWS_DATA.briefs[AI_NEWS_DATA.briefs.length - 1].date);
+function switchCategory(catId) {
+  if (catId === currentCat) return;
+  currentCat = catId;
+  activeFilter = null;
+  localStorage.setItem('lim-ai-cat', catId);
+  applyAccent(catId);
+  // Update tab styles
+  document.querySelectorAll('.cat-tab').forEach(t => {
+    const isActive = t.dataset.id === catId;
+    t.classList.toggle('active', isActive);
+    t.style.background   = isActive ? getAccent(catId) : '';
+    t.style.color        = isActive ? '' : '';
+  });
+  loadCategory(catId);
 }
 
-// ── Sidebar ──
+// ══════════════════════════════════════════════════════════════
+//  LOAD CATEGORY DATA
+// ══════════════════════════════════════════════════════════════
+function loadCategory(catId) {
+  const data = (window.LIM_DATA || {})[catId];
+  const briefs = data && data.briefs && data.briefs.length > 0 ? data.briefs : null;
+
+  // Show / hide no-data state
+  document.getElementById('no-data').style.display   = briefs ? 'none' : 'block';
+  document.getElementById('brief-hdr').style.display = briefs ? '' : 'none';
+  document.getElementById('signal-box').style.display = briefs ? '' : 'none';
+  document.getElementById('stories-wrap').style.display = briefs ? '' : 'none';
+  document.getElementById('quick-hits').style.display = briefs ? '' : 'none';
+  document.getElementById('empty-state').style.display = 'none';
+
+  if (!briefs) {
+    document.getElementById('tb-stats').innerHTML = '';
+    document.getElementById('date-list').innerHTML = '';
+    document.getElementById('mobile-datebar').innerHTML = '';
+    document.getElementById('filter-chips').innerHTML = '';
+    return;
+  }
+
+  const reversed = briefs.slice().reverse();
+  renderSidebar(reversed);
+  renderMobileDateBar(reversed);
+  renderFilterChips(briefs);
+  loadBrief(briefs[briefs.length - 1].date, briefs);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SIDEBAR
+// ══════════════════════════════════════════════════════════════
 function renderSidebar(briefs) {
   const list = document.getElementById('date-list');
   list.innerHTML = '';
@@ -561,7 +643,11 @@ function renderSidebar(briefs) {
         ${b.stats.major > 0 ? `<span class="di-badge major">🔴 ${b.stats.major} MAJOR</span>` : ''}
         ${b.stats.significant > 0 ? `<span class="di-badge sig">🟠 ${b.stats.significant} SIG</span>` : ''}
       </div>`;
-    el.onclick = () => { loadBrief(b.date); closeSidebar(); };
+    el.onclick = () => {
+      const data = (window.LIM_DATA || {})[currentCat];
+      loadBrief(b.date, data ? data.briefs : []);
+      closeSidebar();
+    };
     list.appendChild(el);
   });
 }
@@ -574,21 +660,22 @@ function renderMobileDateBar(briefs) {
     chip.className = 'mob-date-chip';
     chip.dataset.date = b.date;
     chip.textContent = b.date;
-    chip.onclick = () => loadBrief(b.date);
+    chip.onclick = () => {
+      const data = (window.LIM_DATA || {})[currentCat];
+      loadBrief(b.date, data ? data.briefs : []);
+    };
     bar.appendChild(chip);
   });
 }
 
-function getCatColor(cat) {
-  return getTheme() === 'light'
-    ? (CAT_CONFIG_LIGHT[cat] || {}).color || '#888'
-    : (CAT_CONFIG[cat] || {}).color || '#888';
-}
-
-function renderFilterChips() {
+// ══════════════════════════════════════════════════════════════
+//  FILTER CHIPS
+// ══════════════════════════════════════════════════════════════
+function renderFilterChips(briefs) {
   const container = document.getElementById('filter-chips');
   container.innerHTML = '';
-  Object.keys(CAT_CONFIG).forEach(cat => {
+  const cats = [...new Set(briefs.flatMap(b => b.stories.map(s => s.category)))].sort();
+  cats.forEach(cat => {
     const chip = document.createElement('div');
     chip.className = 'chip';
     chip.dataset.cat = cat;
@@ -596,14 +683,13 @@ function renderFilterChips() {
     chip.onclick = () => toggleFilter(cat);
     container.appendChild(chip);
   });
+  activeFilter = null;
 }
 
 function updateFilterChipColors() {
   if (!activeFilter) return;
   document.querySelectorAll('.chip').forEach(c => {
-    if (c.dataset.cat === activeFilter) {
-      c.style.background = getCatColor(activeFilter);
-    }
+    if (c.dataset.cat === activeFilter) c.style.background = getAccent(currentCat);
   });
 }
 
@@ -612,9 +698,9 @@ function toggleFilter(cat) {
   document.querySelectorAll('.chip').forEach(c => {
     const isActive = c.dataset.cat === activeFilter;
     c.classList.toggle('active', isActive);
-    c.style.background = isActive ? getCatColor(c.dataset.cat) : '';
-    c.style.color = isActive ? '' : '';
-    c.style.borderColor = isActive ? getCatColor(c.dataset.cat) : '';
+    c.style.background  = isActive ? getAccent(currentCat) : '';
+    c.style.color       = isActive ? '' : '';
+    c.style.borderColor = isActive ? getAccent(currentCat) : '';
   });
   applyFilter();
 }
@@ -629,10 +715,12 @@ function applyFilter() {
   document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
 }
 
-// ── Load brief ──
-function loadBrief(date) {
+// ══════════════════════════════════════════════════════════════
+//  LOAD BRIEF
+// ══════════════════════════════════════════════════════════════
+function loadBrief(date, briefs) {
   currentDate = date;
-  const brief = AI_NEWS_DATA.briefs.find(b => b.date === date);
+  const brief = briefs.find(b => b.date === date);
   if (!brief) return;
 
   document.querySelectorAll('.date-item').forEach(el =>
@@ -641,14 +729,12 @@ function loadBrief(date) {
     el.classList.toggle('active', el.dataset.date === date));
 
   document.getElementById('tb-stats').innerHTML = `
-    <span>${brief.stats.total} STORIES</span>
-    <span>·</span>
-    <span class="s-major">🔴 ${brief.stats.major}</span>
-    <span>·</span>
+    <span>${brief.stats.total} STORIES</span><span>·</span>
+    <span class="s-major">🔴 ${brief.stats.major}</span><span>·</span>
     <span class="s-sig">🟠 ${brief.stats.significant}</span>`;
 
   document.getElementById('brief-hdr').innerHTML = `
-    <div class="bh-date">AI NEWS BRIEF — ${date}</div>
+    <div class="bh-date">NEWS BRIEF — ${date}</div>
     <div class="bh-headline">${brief.indexHeadline}</div>
     <div class="bh-summary">${brief.indexSummary}</div>
     <div class="bh-stats">
@@ -670,6 +756,7 @@ function loadBrief(date) {
 
   const wrap = document.getElementById('stories-wrap');
   wrap.innerHTML = `<div class="stories-hdr">TOP STORIES</div>`;
+  const accent = getAccent(currentCat);
 
   brief.stories.forEach((s, idx) => {
     const card = document.createElement('div');
@@ -678,7 +765,7 @@ function loadBrief(date) {
     card.innerHTML = `
       <div class="story-head" onclick="toggleStory(this.parentElement)">
         <div class="story-meta">
-          <span class="cat-badge cat-${s.category}">${s.category}</span>
+          <span class="cat-badge" style="background:${accent}22;color:${accent};border-color:${accent}44">${s.category}</span>
           <span class="priority-dot p${s.priorityLevel}"></span>
           <span class="priority-label p${s.priorityLevel}-txt">${PRIORITY_LABEL[s.priorityLevel]}</span>
           ${s.tags.map(t => `<span class="tag-pill">#${t}</span>`).join('')}
@@ -695,30 +782,12 @@ function loadBrief(date) {
         </div>
       </div>
       <div class="story-body">
-        <div class="story-section">
-          <div class="ss-label">WHAT HAPPENED</div>
-          <div class="ss-text">${s.whatHappened}</div>
-        </div>
-        <div class="story-section">
-          <div class="ss-label">WHAT IT CAN DO</div>
-          <ul class="ss-list ss-cando">${s.whatItCanDo.map(x => `<li>${x}</li>`).join('')}</ul>
-        </div>
-        <div class="story-section">
-          <div class="ss-label">WHAT'S THE CATCH</div>
-          <ul class="ss-list ss-catch">${s.whatsCatch.map(x => `<li>${x}</li>`).join('')}</ul>
-        </div>
-        <div class="story-section">
-          <div class="ss-label">KEY TAKEAWAY</div>
-          <div class="takeaway-box"><div class="ss-text">${s.keyTakeaway}</div></div>
-        </div>
-        <div class="story-section">
-          <div class="ss-label">HOW IT CAN IMPROVE</div>
-          <div class="ss-text">${s.howToImprove}</div>
-        </div>
-        <div class="story-section">
-          <div class="ss-label">VS. PREVIOUS COVERAGE</div>
-          <div class="vs-box">${s.vsPrevious}</div>
-        </div>
+        <div class="story-section"><div class="ss-label">WHAT HAPPENED</div><div class="ss-text">${s.whatHappened}</div></div>
+        <div class="story-section"><div class="ss-label">WHAT IT CAN DO</div><ul class="ss-list ss-cando">${s.whatItCanDo.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        <div class="story-section"><div class="ss-label">WHAT'S THE CATCH</div><ul class="ss-list ss-catch">${s.whatsCatch.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+        <div class="story-section"><div class="ss-label">KEY TAKEAWAY</div><div class="takeaway-box"><div class="ss-text">${s.keyTakeaway}</div></div></div>
+        <div class="story-section"><div class="ss-label">HOW IT CAN IMPROVE</div><div class="ss-text">${s.howToImprove}</div></div>
+        <div class="story-section"><div class="ss-label">VS. PREVIOUS COVERAGE</div><div class="vs-box">${s.vsPrevious}</div></div>
       </div>`;
     wrap.appendChild(card);
   });
@@ -743,6 +812,42 @@ function loadBrief(date) {
 }
 
 function toggleStory(card) { card.classList.toggle('open'); }
+
+// ══════════════════════════════════════════════════════════════
+//  MOBILE SIDEBAR
+// ══════════════════════════════════════════════════════════════
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebar-overlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+// ══════════════════════════════════════════════════════════════
+//  ALOHA SPLASH
+// ══════════════════════════════════════════════════════════════
+function showSplash() {
+  const el = document.getElementById('aloha');
+  // Set accent color on splash text
+  el.querySelector('.aloha-text').style.color = getAccent(currentCat);
+  setTimeout(() => {
+    el.classList.add('fade-out');
+    setTimeout(() => { el.style.display = 'none'; }, 650);
+  }, 1500);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  BOOT
+// ══════════════════════════════════════════════════════════════
+function init() {
+  initTheme();
+  applyAccent(currentCat);
+  buildCatBar();
+  loadCategory(currentCat);
+  showSplash();
+}
 
 init();
 </script>
